@@ -97,8 +97,10 @@ header{
 }
 header.scrolled{background:rgba(32,9,6,.92);backdrop-filter:blur(12px);border-bottom-color:rgba(214,153,107,.18)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 30px;max-width:1240px;margin:0 auto}
-.logo{font-family:var(--serif);font-size:30px;font-weight:500;color:var(--cream);text-decoration:none;letter-spacing:.04em;font-style:italic}
-.logo .dot{color:var(--ember)}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo-mark{width:34px;height:34px;color:var(--ember);flex:none}
+.logo-word{font-family:var(--serif);font-style:italic;font-size:29px;font-weight:500;color:var(--cream);letter-spacing:.05em;line-height:1}
+.logo-word small{display:block;font-family:var(--caps);font-style:normal;font-size:8px;letter-spacing:.42em;text-transform:uppercase;color:var(--ember);margin-top:3px}
 .nav-links{display:flex;gap:34px;align-items:center;list-style:none}
 .nav-links a{font-family:var(--caps);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#e3c6ab;text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--ember)}
@@ -215,6 +217,8 @@ header.scrolled{background:rgba(32,9,6,.92);backdrop-filter:blur(12px);border-bo
 .pillar .num::after{content:"";display:block;width:28px;height:1px;background:var(--red-dim);margin-top:12px}
 .pillar h3{font-size:25px;color:var(--ink-title);margin-bottom:14px;font-weight:500}
 .pillar p{font-size:14.5px;line-height:1.8;color:#7a5240}
+.pillar .pquote{font-family:var(--serif);font-style:italic;font-size:15.5px;line-height:1.7;color:#6d4636}
+.pillar .attr{display:block;margin-top:12px;font-family:var(--caps);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
 .research-note{
   margin:64px auto 0;max-width:640px;text-align:center;color:#9a6a50;
   font-style:italic;font-family:var(--serif);font-size:16.5px;
@@ -235,7 +239,11 @@ header.scrolled{background:rgba(32,9,6,.92);backdrop-filter:blur(12px);border-bo
 .day-tab.active{color:var(--ember)}
 .day-tab::after{content:"";position:absolute;left:20%;right:20%;bottom:-1px;height:2px;background:var(--red-bright);transform:scaleX(0);transition:transform .35s}
 .day-tab.active::after{transform:scaleX(1)}
-.day-panel{display:none;max-width:680px;margin:0 auto}
+.day-panel{
+  display:none;max-width:680px;margin:0 auto;
+  border:1px solid rgba(214,153,107,.16);background:rgba(238,219,196,.025);
+  padding:48px 46px 44px;
+}
 .day-panel.active{display:block;animation:fadeup .5s ease}
 @keyframes fadeup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .day-title{text-align:center;margin-bottom:44px}
@@ -318,21 +326,29 @@ header.scrolled{background:rgba(32,9,6,.92);backdrop-filter:blur(12px);border-bo
 }
 @media(max-width:560px){.invite-card{padding:56px 26px 48px}}
 
-/* ---------- testimonials ---------- */
+/* ---------- testimonials / stories ---------- */
 .stories{background:var(--ivory)}
-.quote-stage{max-width:760px;margin:60px auto 0;text-align:center;position:relative;min-height:270px}
-.quote-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s;pointer-events:none}
-.quote-slide.active{opacity:1;position:relative;pointer-events:auto}
-.quote-slide .mark{font-family:var(--serif);font-size:84px;line-height:.4;color:var(--red);display:block;margin-bottom:34px}
-.quote-slide blockquote{
-  font-family:var(--serif);font-size:clamp(21px,3.2vw,28px);font-style:italic;font-weight:300;
-  color:#47231a;line-height:1.6;margin-bottom:34px;
+.quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:70px}
+.quote-card{
+  background:var(--cream);border:1px solid rgba(122,23,23,.16);
+  padding:48px 42px 42px;position:relative;
 }
-.quote-slide cite{font-style:normal;font-family:var(--caps);font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--red)}
-.quote-slide cite span{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.14em;color:#a5745a;margin-top:6px;text-transform:none}
-.quote-dots{display:flex;justify-content:center;gap:12px;margin-top:44px}
-.qdot{width:8px;height:8px;transform:rotate(45deg);border:1px solid var(--red);background:transparent;cursor:pointer;padding:0;transition:background .3s}
-.qdot.active{background:var(--red)}
+.quote-card::before{
+  content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:3px;
+  background:linear-gradient(180deg,var(--red-bright),rgba(184,53,42,.15));
+}
+.quote-card .mark{font-family:var(--serif);font-size:72px;line-height:.4;color:var(--red);display:block;margin-bottom:30px}
+.quote-card blockquote{
+  font-family:var(--serif);font-size:20px;font-style:italic;font-weight:300;
+  color:#47231a;line-height:1.65;margin-bottom:30px;
+}
+.quote-card cite{font-style:normal;font-family:var(--caps);font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.quote-card cite span{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.14em;color:#a5745a;margin-top:6px;text-transform:none}
+.stories-note{
+  margin:54px auto 0;max-width:560px;text-align:center;
+  font-family:var(--serif);font-style:italic;font-size:17px;color:#9a6a50;
+}
+@media(max-width:880px){.quote-grid{grid-template-columns:1fr}}
 
 /* ---------- venue ---------- */
 .venue{background:var(--cream)}
@@ -460,11 +476,14 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
   .day-tabs{gap:0;flex-wrap:wrap;border-bottom:none}
   .day-tab{flex:1 1 33%;padding:12px 6px 14px;font-size:10.5px;letter-spacing:.14em;border-bottom:1px solid rgba(214,153,107,.22)}
   .day-tab .roman{font-size:18px}
+  .day-panel{padding:30px 18px 28px}
+  .logo-word{font-size:25px}
+  .logo-word small{font-size:7px;letter-spacing:.3em}
   .shift-line{gap:14px;font-size:24px}
   .shift-line .arrow{font-size:.55em}
   .venue-times{flex-wrap:wrap;gap:20px 40px}
-  .quote-stage{min-height:0}
-  .quote-slide blockquote{font-size:19px}
+  .quote-card{padding:36px 26px 32px}
+  .quote-card blockquote{font-size:18px}
   summary{font-size:18px}
   .steps li{padding-left:56px}
   .orn-eyebrow::before,.orn-eyebrow::after{width:34px}
@@ -476,7 +495,15 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
 <!-- ================= HEADER ================= -->
 <header id="siteHeader">
   <nav class="nav">
-    <a class="logo" href="#top">Ree<span class="dot">.</span></a>
+    <a class="logo" href="#top" aria-label="Ree — home">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+        <circle cx="25" cy="7" r="3" fill="currentColor" stroke="none"/>
+        <path d="M7 31 C 13.5 29, 20.5 24, 23.5 12.5"/>
+        <path d="M10 34.5 C 20 32.5, 28 26.5, 33 16.5"/>
+        <path d="M16.5 37 C 24.5 36.5, 31.5 32.5, 36 25"/>
+      </svg>
+      <span class="logo-word">ree<small>from doing to being</small></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#approach">The Approach</a></li>
       <li><a href="#itinerary">The Days</a></li>
@@ -522,7 +549,7 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
   <div class="hero-inner">
     <div class="hero-kicker reveal visible">A residential retreat for women</div>
     <h1 class="reveal visible">Ree<span class="ital">,</span> from doing<br><span class="ital">to being.</span></h1>
-    <p class="hero-sub reveal visible d1">Three days rooted in Yoga, Kalari, chanting, and the classical arts — to learn what no holiday teaches: how to be replenished from within.</p>
+    <p class="hero-sub reveal visible d1">Three days rooted in Yoga, Kalaripayattu, chanting, and the classical arts — to learn what no holiday teaches: how to be replenished from within.</p>
     <ul class="hero-meta reveal visible d2">
       <li><span>Dates</span>4 – 6 September 2026</li>
       <li><span>Venue</span>Tavaro Resorts, Hyderabad</li>
@@ -559,11 +586,11 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
   <div class="wrap">
     <div class="orn-eyebrow reveal">The approach</div>
     <h2 class="section-title reveal">Four sciences. <em>One immersion.</em></h2>
-    <p class="lead reveal d1">Not a spa getaway. Not a generic yoga weekend. A cultural immersion into traditions refined over centuries — taught by lifelong practitioners of the Isha Samskriti lineage.</p>
+    <p class="lead reveal d1">Not a spa getaway. Not a generic yoga weekend. A cultural immersion into traditions refined over centuries — taught by lifelong practitioners of the Sadhguru Gurukulam lineage.</p>
 
     <div class="pillars">
-      <div class="pillar reveal"><span class="num">i.</span><h3>Classical Hatha Yoga</h3><p>Practice taught from the very basics, the classical way — to steady the body and quiet a mind that has forgotten how to rest.</p></div>
-      <div class="pillar reveal d1"><span class="num">ii.</span><h3>Kalari</h3><p>Kerala's ancient martial art — strength, alertness, and play, taught by a national medalist. Introductory, and safe for complete beginners.</p></div>
+      <div class="pillar reveal"><span class="num">i.</span><h3>Classical Hatha Yoga</h3><p class="pquote">&ldquo;Your physical health, your psychological wellbeing, and your spiritual possibility depend on how well aligned you are with existence. Essentially, Hatha Yoga is towards establishing this alignment.&rdquo;</p><span class="attr">— Sadhguru</span></div>
+      <div class="pillar reveal d1"><span class="num">ii.</span><h3>Kalaripayattu</h3><p>Known as &ldquo;the mother of all martial arts,&rdquo; Kalaripayattu is said to have originated from the Dhanurveda, a scientific treatise on the art of warfare in ancient Bharat. Learn three sets of practices which enhance flexibility, balance, and strength in the body.</p></div>
       <div class="pillar reveal d2"><span class="num">iii.</span><h3>Chanting &amp; Music</h3><p>From sound to silence — Hindustani music and traditional chants that settle the nervous system in ways words cannot.</p></div>
       <div class="pillar reveal d3"><span class="num">iv.</span><h3>Classical Arts</h3><p>Craft, movement, and a traditional Devi celebration — beauty and culture as an essential part of the medicine.</p></div>
     </div>
@@ -592,7 +619,7 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
         <li><span class="time">3:30 PM</span><span class="what">Opening circle — a traditional welcome</span></li>
         <li><span class="time">4:00 PM</span><span class="what">Games &amp; getting to know each other</span></li>
         <li><span class="time">5:00 PM</span><span class="what">Evening yoga session</span></li>
-        <li><span class="time">7:00 PM</span><span class="what">Light dinner — khichdi, soup, salad</span></li>
+        <li><span class="time">7:00 PM</span><span class="what">Light dinner</span></li>
         <li><span class="time">8:15 PM</span><span class="what">Night session</span></li>
       </ul>
     </div>
@@ -601,12 +628,12 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
       <div class="day-title"><h3>Day Two</h3><span class="sub">Going deeper</span></div>
       <ul class="tl">
         <li><span class="time">6:00 AM</span><span class="what">Morning yoga</span></li>
-        <li><span class="time">7:45 AM</span><span class="what">Kalari &amp; games</span></li>
-        <li><span class="time">9:00 AM</span><span class="what">Breakfast — fresh fruit, sprouts, idly &amp; dosa</span></li>
+        <li><span class="time">7:45 AM</span><span class="what">Kalaripayattu &amp; games</span></li>
+        <li><span class="time">9:00 AM</span><span class="what">Breakfast</span></li>
         <li><span class="time">11:00 AM</span><span class="what">From Sound to Silence — music and chanting</span></li>
         <li><span class="time">12:30 PM</span><span class="what">Lunch</span></li>
         <li><span class="time">1:30 PM</span><span class="what">Rest <span class="note">— yes, scheduled rest</span></span></li>
-        <li><span class="time">3:30 PM</span><span class="what">Kalari session &amp; games on the lawn</span></li>
+        <li><span class="time">3:30 PM</span><span class="what">Kalaripayattu &amp; games on the lawn</span></li>
         <li><span class="time">5:30 PM</span><span class="what">Craft session</span></li>
         <li><span class="time">6:30 PM</span><span class="what">Dinner</span></li>
         <li><span class="time">8:00 PM</span><span class="what">Bonfire &amp; night meditation</span></li>
@@ -651,7 +678,7 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
         </div>
         <h3>Manasa Ganga</h3>
         <div class="role">Classical Arts Curator</div>
-        <p>Isha Samskriti alumna with fifteen years in Hindustani music, and a classical Hatha Yoga teacher. A life spent rooted in spirituality and the yogic sciences.</p>
+        <p>Sadhguru Gurukulam alumna with fifteen years in Hindustani music, and a classical Hatha Yoga teacher. A life spent rooted in spirituality and the yogic sciences.</p>
       </div>
       <div class="teacher reveal d2">
         <div class="arch">
@@ -660,7 +687,7 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
         </div>
         <h3>Aadarsh Kiran</h3>
         <div class="role">Kalari Master</div>
-        <p>Isha Samskriti alumnus, KPCGM-certified Kalari master and national medalist with seventeen years of practice. Also a Hatha Yoga teacher.</p>
+        <p>Sadhguru Gurukulam alumnus, KPCGM-certified Kalari master and national medalist with seventeen years of practice. Also a Hatha Yoga teacher.</p>
       </div>
     </div>
   </div>
@@ -685,12 +712,12 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
       <ul class="inc-list">
         <li><span class="tick">◆</span>Full residential stay at Tavaro Resorts — twin-sharing, air-conditioned</li>
         <li><span class="tick">◆</span>Every meal — fresh, vegetarian, composed to support the practices</li>
-        <li><span class="tick">◆</span>The complete program — Yoga, Kalari, chanting, classical arts</li>
+        <li><span class="tick">◆</span>The complete program — Yoga, Kalaripayattu, chanting, classical arts</li>
         <li><span class="tick">◆</span>Forty days of post-program engagement after you return home</li>
         <li><span class="tick">◆</span>A take-home wellness hamper</li>
       </ul>
 
-      <p class="forty">The retreat is three days.<br>The program is forty-three.</p>
+      <p class="forty">And it does not end when you leave —<br>forty days of guided engagement follow you home.</p>
       <a class="btn btn-red" href="#book">Reserve Your Place</a>
     </div>
   </div>
@@ -699,25 +726,22 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
 <!-- ================= TESTIMONIALS ================= -->
 <section class="stories" id="stories">
   <div class="wrap">
-    <div class="orn-eyebrow reveal">From past participants</div>
-    <h2 class="section-title reveal">In <em>their</em> words</h2>
+    <div class="orn-eyebrow reveal">Stories of transformation</div>
+    <h2 class="section-title reveal">What the retreat <em>changed</em> for them</h2>
 
-    <div class="quote-stage reveal d1">
-      <div class="quote-slide active">
+    <div class="quote-grid">
+      <div class="quote-card reveal">
         <span class="mark">“</span>
         <blockquote>The retreat was a truly transformative experience. It gave me the space to disconnect, reflect, and reconnect with what really matters. The setting, the people, and the guidance all came together perfectly — I left feeling refreshed and inspired.</blockquote>
         <cite>Archana Bysani<span>Homemaker</span></cite>
       </div>
-      <div class="quote-slide">
+      <div class="quote-card reveal d1">
         <span class="mark">“</span>
         <blockquote>The way they made us connected with nature was fulfilling and content. It is a great getaway from everyday routine and rejuvenate oneself.</blockquote>
         <cite>T. Deepthi Rao<span>Teacher</span></cite>
       </div>
     </div>
-    <div class="quote-dots">
-      <button class="qdot active" data-q="0" aria-label="Testimonial 1"></button>
-      <button class="qdot" data-q="1" aria-label="Testimonial 2"></button>
-    </div>
+    <p class="stories-note reveal d2">Every cohort is small enough that we know each woman's story — ask us about them on your enquiry call.</p>
   </div>
 </section>
 
@@ -891,18 +915,6 @@ document.querySelectorAll(".day-tab").forEach(tab => {
     document.querySelector('.day-panel[data-panel="' + tab.dataset.day + '"]').classList.add("active");
   });
 });
-
-/* ---- testimonial rotator ---- */
-const slides = document.querySelectorAll(".quote-slide");
-const dots = document.querySelectorAll(".qdot");
-let qi = 0, qTimer = setInterval(nextQuote, 7000);
-function showQuote(i){
-  qi = i;
-  slides.forEach((s,k)=>s.classList.toggle("active",k===i));
-  dots.forEach((d,k)=>d.classList.toggle("active",k===i));
-}
-function nextQuote(){ showQuote((qi+1)%slides.length); }
-dots.forEach(d => d.addEventListener("click", () => { clearInterval(qTimer); showQuote(+d.dataset.q); qTimer=setInterval(nextQuote,7000); }));
 
 /* ---- enquiry form → WhatsApp ---- */
 document.getElementById("enquiryForm").addEventListener("submit", function(e){
