@@ -442,6 +442,33 @@ footer a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(21
 .legal ul{margin:10px 0 10px 20px}
 .legal .copyright{margin-top:26px;letter-spacing:.06em}
 @media(max-width:720px){.foot-grid{grid-template-columns:1fr;gap:40px}}
+
+/* ---------- small-screen refinements ---------- */
+@media(max-width:640px){
+  section{padding:68px 0}
+  .manifesto{padding:80px 0 72px}
+  .hero{padding:120px 0 80px}
+  .hero h1{font-size:clamp(42px,13vw,60px)}
+  .hero-sub{font-size:19px;margin-bottom:32px}
+  .hero-meta{border:none;display:block;margin-bottom:36px}
+  .hero-meta li{border:none;border-top:1px solid rgba(214,153,107,.2);padding:12px 0;margin:0;display:flex;justify-content:space-between;align-items:baseline;width:100%}
+  .hero-meta li:last-child{border-bottom:1px solid rgba(214,153,107,.2)}
+  .btn-row{flex-direction:column;align-items:stretch;gap:12px}
+  .btn{width:100%;padding:17px 20px}
+  .invite-card .btn,.submit-btn{width:100%}
+  .section-title{font-size:clamp(30px,8vw,38px)}
+  .day-tabs{gap:0;flex-wrap:wrap;border-bottom:none}
+  .day-tab{flex:1 1 33%;padding:12px 6px 14px;font-size:10.5px;letter-spacing:.14em;border-bottom:1px solid rgba(214,153,107,.22)}
+  .day-tab .roman{font-size:18px}
+  .shift-line{gap:14px;font-size:24px}
+  .shift-line .arrow{font-size:.55em}
+  .venue-times{flex-wrap:wrap;gap:20px 40px}
+  .quote-stage{min-height:0}
+  .quote-slide blockquote{font-size:19px}
+  summary{font-size:18px}
+  .steps li{padding-left:56px}
+  .orn-eyebrow::before,.orn-eyebrow::after{width:34px}
+}
 </style>
 </head>
 <body>
