@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ree — From Doing to Being | A Residential Retreat for Women</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --terracotta: #B85C38;
+            --terracotta-light: #D4855A;
+            --sand: #F5F0E8;
+            --sand-dark: #E8E0D4;
+            --forest: #2D4A3E;
+            --forest-light: #4A6B5A;
+            --charcoal: #1A1A1A;
+            --warm-gray: #6B6560;
+            --light-gray: #9B9590;
+            --white: #FFFFFF;
+            --sanskrit-gold: #C9A96E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            background: var(--sand);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        /* Sanskrit ornament */
+        .sanskrit-ree {
+            font-family: 'Noto Sans Devanagari', serif;
+            color: var(--sanskrit-gold);
+            opacity: 0.15;
+            font-size: 20rem;
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(245, 240, 232, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 20px rgba(0,0,0,0.05);
+            padding: 1rem 4rem;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--warm-gray);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--terracotta);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--terracotta);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--terracotta);
+            color: var(--white) !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--forest);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--sand) 0%, #EDE6DA 100%);
+            overflow: hidden;
+        }
+
+        .hero-sanskrit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 35vw;
+            opacity: 0.06;
+            color: var(--terracotta);
+            font-family: serif;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--terracotta);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--terracotta);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--warm-gray);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            font-size: 0.85rem;
+            color: var(--light-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-meta .dot {
+            width: 4px;
+            height: 4px;
+            background: var(--terracotta);
+            border-radius: 50%;
+        }
+
+        .seats-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--forest);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+        }
+
+        .seats-badge .pulse {
+            width: 8px;
+            height: 8px;
+            background: #7FB069;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--light-gray);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--terracotta), transparent);
+        }
+
+        /* Section base */
+        section {
+            padding: 8rem 4rem;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: var(--charcoal);
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--terracotta);
+        }
+
+        /* Why Ree */
+        .why-ree {
+            background: var(--white);
+        }
+
+        .why-ree-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .why-ree-text {
+            padding-top: 2rem;
+        }
+
+        .why-ree-text p {
+            font-size: 1.15rem;
+            color: var(--warm-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .why-ree-text .highlight {
+            color: var(--terracotta);
+            font-weight: 500;
+        }
+
+        .etymology {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--sand);
+            border-left: 3px solid var(--terracotta);
+        }
+
+        .etymology .devanagari {
+            font-size: 2.5rem;
+            color: var(--terracotta);
+            margin-bottom: 0.5rem;
+            font-family: serif;
+        }
+
+        .etymology p {
+            font-size: 0.95rem;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .why-ree-visual {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(145deg, var(--sand-dark) 0%, var(--sand) 100%);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .doing-being-line {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(to right, var(--light-gray), var(--terracotta), var(--light-gray));
+        }
+
+        .doing-being-labels {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+            transform: translateY(-30px);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            font-style: italic;
+        }
+
+        .doing-being-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border: 1px solid var(--terracotta);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+        }
+
+        .doing-being-center::after {
+            content: '✦';
+            color: var(--terracotta);
+            font-size: 1.5rem;
+        }
+
+        /* The Approach */
+        .approach {
+            background: var(--forest);
+            color: var(--sand);
+        }
+
+        .approach .section-label {
+            color: var(--terracotta-light);
+        }
+
+        .approach .section-title {
+            color: var(--sand);
+        }
+
+        .approach-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .approach-card {
+            padding: 2.5rem 2rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 2px;
+            transition: all 0.4s;
+        }
+
+        .approach-card:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-5px);
+        }
+
+        .approach-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--terracotta-light);
+            opacity: 0.5;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .approach-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--sand);
+        }
+
+        .approach-card p {
+            font-size: 0.95rem;
+            color: rgba(245, 240, 232, 0.7);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .approach-quote {
+            max-width: 700px;
+            margin: 4rem auto 0;
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .approach-quote blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: rgba(245, 240, 232, 0.9);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .approach-quote cite {
+            font-size: 0.85rem;
+            color: var(--terracotta-light);
+            font-style: normal;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Research & Evidence — NEW SECTION */
+        .research {
+            background: var(--sand);
+            padding: 8rem 4rem;
+        }
+
+        .research-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .research-sidebar {
+            position: sticky;
+            top: 120px;
+        }
+
+        .research-sidebar h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-sidebar p {
+            color: var(--warm-gray);
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .research-sidebar .data-point {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .data-point .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--terracotta);
+            line-height: 1;
+        }
+
+        .data-point .label {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
+        }
+
+        .research-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .paper-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 2px;
+            border-left: 4px solid var(--terracotta);
+            transition: all 0.3s;
+        }
+
+        .paper-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transform: translateX(5px);
+        }
+
+        .paper-card .journal {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--terracotta);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .paper-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .paper-card .summary {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .paper-card .finding {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--sand);
+            border-radius: 2px;
+            font-size: 0.9rem;
+            color: var(--forest);
+        }
+
+        .paper-card .finding::before {
+            content: '→';
+            color: var(--terracotta);
+            font-weight: 600;
+        }
+
+        .paper-card .citation {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--light-gray);
+            font-style: italic;
+        }
+
+        /* Schedule */
+        .schedule {
+            background: var(--white);
+        }
+
+        .schedule-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .schedule-day {
+            margin-bottom: 4rem;
+        }
+
+        .schedule-day:last-child {
+            margin-bottom: 0;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--sand-dark);
+        }
+
+        .day-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--terracotta);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .day-title {
+            font-size: 1.75rem;
+            color: var(--charcoal);
+        }
+
+        .day-subtitle {
+            font-size: 1rem;
+            color: var(--light-gray);
+            font-style: italic;
+            margin-left: auto;
+        }
+
+        .schedule-items {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 0;
+        }
+
+        .schedule-time {
+            font-size: 0.85rem;
+            color: var(--terracotta);
+            font-weight: 600;
+            padding: 1.25rem 0;
+            border-right: 1px solid var(--sand-dark);
+            text-align: right;
+            padding-right: 2rem;
+        }
+
+        .schedule-activity {
+            padding: 1.25rem 0 1.25rem 2rem;
+            font-size: 1rem;
+            color: var(--charcoal);
+            border-bottom: 1px solid var(--sand);
+            font-weight: 400;
+        }
+
+        .schedule-activity em {
+            color: var(--warm-gray);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Faculty */
+        .faculty {
+            background: var(--sand);
+        }
+
+        .faculty-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .faculty-card {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 2px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .faculty-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sand-dark), var(--sand));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--terracotta);
+            border: 2px solid var(--sand);
+        }
+
+        .faculty-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+            color: var(--charcoal);
+        }
+
+        .faculty-role {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--terracotta);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .faculty-card p {
+            font-size: 0.95rem;
+            color: var(--warm-gray);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Investment */
+        .investment {
+            background: var(--forest);
+            color: var(--sand);
+            text-align: center;
+        }
+
+        .investment .section-label {
+            color: var(--terracotta-light);
+        }
+
+        .investment .section-title {
+            color: var(--sand);
+        }
+
+        .price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            color: var(--sand);
+            margin: 2rem 0 0.5rem;
+            line-height: 1;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: rgba(245, 240, 232, 0.6);
+            margin-bottom: 3rem;
+            letter-spacing: 0.05em;
+        }
+
+        .includes-grid {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .include-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 2px;
+        }
+
+        .include-item::before {
+            content: '◆';
+            color: var(--terracotta-light);
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        .include-item span {
+            font-size: 0.95rem;
+            color: rgba(245, 240, 232, 0.85);
+            font-weight: 300;
+        }
+
+        .post-program {
+            margin-top: 3rem;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 2px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post-program p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: rgba(245, 240, 232, 0.9);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            max-width: 1000px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .testimonial {
+            position: relative;
+            padding: 3rem;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 8rem;
+            color: var(--sand-dark);
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .testimonial blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--charcoal);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial .name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .testimonial .role {
+            font-size: 0.85rem;
+            color: var(--light-gray);
+            margin-top: 0.25rem;
+        }
+
+        /* Venue */
+        .venue {
+            background: var(--sand);
+        }
+
+        .venue-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .venue-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .venue-info .location {
+            font-size: 1rem;
+            color: var(--terracotta);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .venue-info p {
+            color: var(--warm-gray);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .venue-dates {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--sand-dark);
+        }
+
+        .date-block {
+            text-align: center;
+        }
+
+        .date-block .day {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--terracotta);
+            line-height: 1;
+        }
+
+        .date-block .month {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--warm-gray);
+            margin-top: 0.25rem;
+        }
+
+        .date-block .time {
+            font-size: 0.85rem;
+            color: var(--light-gray);
+            margin-top: 0.25rem;
+        }
+
+        .date-separator {
+            display: flex;
+            align-items: center;
+            color: var(--light-gray);
+            font-size: 1.5rem;
+        }
+
+        .venue-visual {
+            height: 500px;
+            background: linear-gradient(145deg, #DDD5C7, var(--sand-dark));
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .venue-visual::after {
+            content: 'Tavaro Resorts';
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            opacity: 0.4;
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--sand);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.75rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            cursor: pointer;
+            text-align: left;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--terracotta);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--terracotta);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-bottom: 1.75rem;
+        }
+
+        .faq-answer p {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--forest);
+            color: var(--sand);
+            text-align: center;
+            padding: 6rem 4rem;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: var(--sand);
+        }
+
+        .cta p {
+            color: rgba(245, 240, 232, 0.7);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .cta-steps {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 3rem 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-step {
+            text-align: center;
+            flex: 1;
+        }
+
+        .cta-step .num {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--terracotta-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--terracotta-light);
+        }
+
+        .cta-step h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--sand);
+        }
+
+        .cta-step p {
+            font-size: 0.9rem;
+            color: rgba(245, 240, 232, 0.6);
+            margin: 0;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--terracotta);
+            color: var(--white);
+            padding: 1.1rem 3rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--sand);
+            color: var(--forest);
+        }
+
+        .whatsapp-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--terracotta-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .whatsapp-link:hover {
+            border-bottom-color: var(--terracotta-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: rgba(245, 240, 232, 0.4);
+            padding: 3rem 4rem;
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            section { padding: 5rem 2rem; }
+            nav { padding: 1rem 2rem; }
+            .nav-links { display: none; }
+            
+            .why-ree-grid,
+            .venue-grid,
+            .research-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .approach-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .includes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .research-sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .schedule-items {
+                grid-template-columns: 80px 1fr;
+            }
+            
+            .cta-steps {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .venue-dates {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .date-separator {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">Ree</a>
+        <ul class="nav-links">
+            <li><a href="#why">Why Ree</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#research">Evidence</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#faculty">Teachers</a></li>
+            <li><a href="#investment">Investment</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#reserve" class="nav-cta">Reserve</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-sanskrit">री</div>
+        <div class="hero-content">
+            <div class="hero-tag">A Residential Retreat for Women</div>
+            <h1>Ree, from <em>doing</em><br>to <em>being</em>.</h1>
+            <p class="hero-subtitle">
+                Three days rooted in Yoga, Kalaripayattu, chanting, and the classical arts — 
+                to learn what no holiday teaches: how to be replenished from within.
+            </p>
+            <div class="seats-badge">
+                <span class="pulse"></span>
+                15 of 15 places remaining · September 4–6
+            </div>
+            <div class="hero-meta">
+                <span>Hyderabad</span>
+                <span class="dot"></span>
+                <span>3 Days</span>
+                <span class="dot"></span>
+                <span>2 Nights</span>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Why Ree -->
+    <section class="why-ree" id="why">
+        <div class="why-ree-grid">
+            <div class="why-ree-text fade-in">
+                <div class="section-label">Why Ree exists</div>
+                <h2 class="section-title">You have been doing.<br>And doing. <em>And doing.</em></h2>
+                <p>
+                    The work, the home, the people who depend on you — you hold it all up, gracefully, 
+                    and somewhere along the way the tiredness stopped going away with sleep.
+                </p>
+                <p>
+                    That is not weakness. That is what happens when everything flows out and 
+                    nothing flows back in.
+                </p>
+                <p>
+                    A holiday distracts you from it, for a while. Ree does something else entirely: 
+                    it <span class="highlight">teaches you to replenish from within</span>, through practices 
+                    that Indian traditional sciences have refined over centuries — so that the steadiness 
+                    returns home with you, and stays.
+                </p>
+                
+                <div class="etymology">
+                    <div class="devanagari">री</div>
+                    <p><strong>ree</strong> — movement · flow — the root of <em>sthree</em>, 
+                    the word for woman in most Indian languages</p>
+                </div>
+            </div>
+            <div class="why-ree-visual fade-in">
+                <div class="doing-being-labels">
+                    <span>doing</span>
+                    <span>being</span>
+                </div>
+                <div class="doing-being-line"></div>
+                <div class="doing-being-center"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Approach -->
+    <section class="approach" id="approach">
+        <div class="fade-in">
+            <div class="section-label">The approach</div>
+            <h2 class="section-title">Four sciences. <em>One immersion.</em></h2>
+            <p style="text-align: center; color: rgba(245,240,232,0.6); max-width: 600px; margin: 0 auto; font-weight: 300;">
+                Not a spa getaway. Not a generic yoga weekend. A cultural immersion into traditions 
+                refined over centuries — taught by lifelong practitioners of the Sadhguru Gurukulam lineage.
+            </p>
+        </div>
+        
+        <div class="approach-grid">
+            <div class="approach-card fade-in">
+                <div class="approach-num">i</div>
+                <h3>Classical Hatha Yoga</h3>
+                <p>Alignment-based practice that works on the physical, psychological, and spiritual dimensions simultaneously. Taught as a complete system, not a fitness routine.</p>
+            </div>
+            <div class="approach-card fade-in">
+                <div class="approach-num">ii</div>
+                <h3>Kalaripayattu</h3>
+                <p>The mother of all martial arts, originating from the Dhanurveda. Three sets of practices to enhance flexibility, balance, and inner strength.</p>
+            </div>
+            <div class="approach-card fade-in">
+                <div class="approach-num">iii</div>
+                <h3>Chanting & Music</h3>
+                <p>From sound to silence — Hindustani music and traditional chants that settle the nervous system in ways words cannot reach.</p>
+            </div>
+            <div class="approach-card fade-in">
+                <div class="approach-num">iv</div>
+                <h3>Classical Arts</h3>
+                <p>Craft, movement, and a traditional Devi celebration — beauty and culture as an essential part of the medicine.</p>
+            </div>
+        </div>
+
+        <div class="approach-quote fade-in">
+            <blockquote>
+                "Your physical health, your psychological wellbeing, and your spiritual possibility 
+                depend on how well aligned you are with existence. Essentially, Hatha Yoga is towards 
+                establishing this alignment."
+            </blockquote>
+            <cite>— Sadhguru</cite>
+        </div>
+    </section>
+
+    <!-- Research & Evidence — NEW -->
+    <section class="research" id="research">
+        <div class="research-container">
+            <div class="research-sidebar fade-in">
+                <div class="section-label">Research & Evidence</div>
+                <h2>Not belief.<br><em>Data.</em></h2>
+                <p>
+                    Yoga-based interventions have been studied extensively in peer-reviewed literature. 
+                    The evidence is clear, measurable, and growing.
+                </p>
+                <div class="data-point">
+                    <div class="number">14</div>
+                    <div class="label">Randomized Controlled Trials<br>reviewed in latest meta-analysis</div>
+                </div>
+            </div>
+
+            <div class="research-cards">
+                <div class="paper-card fade-in">
+                    <div class="journal">International Journal of Yoga · Systematic Review · 2025</div>
+                    <h4>Yoga Interventions on Mental Health of Nursing Professionals</h4>
+                    <p class="summary">
+                        A PRISMA-compliant systematic review of 14 RCTs (967 participants, predominantly female, ages 18–69) 
+                        evaluating yoga's impact on stress, anxiety, burnout, depression, and sleep quality.
+                    </p>
+                    <div class="finding">
+                        9 of 11 studies showed significant stress reduction; all 3 burnout studies reported significant decrease in emotional exhaustion and depersonalization.
+                    </div>
+                    <p class="citation">Cocchiara et al., 2019; Hilcove et al., 2021; Zok et al., 2024</p>
+                </div>
+
+                <div class="paper-card fade-in">
+                    <div class="journal">Journal of Holistic Nursing · RCT · 2021</div>
+                    <h4>Mindfulness-Based Yoga for Stress and Burnout in Healthcare Workers</h4>
+                    <p class="summary">
+                        80 healthcare professionals randomly assigned to mindfulness-based yoga vs. control. 
+                        Measured via Perceived Stress Scale, Maslach Burnout Inventory, salivary cortisol, and blood pressure.
+                    </p>
+                    <div class="finding">
+                        Statistically significant improvements (p &lt; .01) in stress, burnout, vitality, sleep quality, serenity, and mindfulness in the yoga group vs. control.
+                    </div>
+                    <p class="citation">Hilcove, Marceau, Thekdi et al., J Holist Nurs 2021</p>
+                </div>
+
+                <div class="paper-card fade-in">
+                    <div class="journal">Frontiers in Public Health · Pilot Study · 2024</div>
+                    <h4>Reducing Stress and Burnout Risk Through Yoga Techniques</h4>
+                    <p class="summary">
+                        Investigated physiological mechanisms: yoga modulates the HPA axis, lowers cortisol, 
+                        enhances parasympathetic activity, and stimulates endorphin, dopamine, and serotonin release.
+                    </p>
+                    <div class="finding">
+                        Yoga's mind-body approach outperforms other exercise and non-exercise interventions for stress management and burnout prevention.
+                    </div>
+                    <p class="citation">Zok, Matecka, Bienkowski et al., Front Public Health 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="schedule" id="schedule">
+        <div class="schedule-container">
+            <div class="fade-in" style="text-align: center; margin-bottom: 4rem;">
+                <div class="section-label">Your three days</div>
+                <h2 class="section-title">A gentle arc, <em>by design</em></h2>
+                <p style="color: var(--warm-gray); font-weight: 300;">Arrive and unwind. Go deeper. Then carry it home.</p>
+            </div>
+
+            <!-- Day 1 -->
+            <div class="schedule-day fade-in">
+                <div class="day-header">
+                    <span class="day-number">01</span>
+                    <span class="day-title">Arriving</span>
+                    <span class="day-subtitle">September 4</span>
+                </div>
+                <div class="schedule-items">
+                    <div class="schedule-time">2:00 PM</div>
+                    <div class="schedule-activity">Check-in & welcome drink</div>
+                    <div class="schedule-time">3:30 PM</div>
+                    <div class="schedule-activity">Opening circle — a traditional welcome</div>
+                    <div class="schedule-time">4:00 PM</div>
+                    <div class="schedule-activity">Games & getting to know each other</div>
+                    <div class="schedule-time">5:00 PM</div>
+                    <div class="schedule-activity">Evening yoga session</div>
+                    <div class="schedule-time">7:00 PM</div>
+                    <div class="schedule-activity">Light dinner</div>
+                    <div class="schedule-time">8:15 PM</div>
+                    <div class="schedule-activity">Night session <em>— sound and stillness</em></div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="schedule-day fade-in">
+                <div class="day-header">
+                    <span class="day-number">02</span>
+                    <span class="day-title">Going deeper</span>
+                    <span class="day-subtitle">September 5</span>
+                </div>
+                <div class="schedule-items">
+                    <div class="schedule-time">6:00 AM</div>
+                    <div class="schedule-activity">Morning yoga</div>
+                    <div class="schedule-time">7:45 AM</div>
+                    <div class="schedule-activity">Kalaripayattu & games</div>
+                    <div class="schedule-time">9:00 AM</div>
+                    <div class="schedule-activity">Breakfast</div>
+                    <div class="schedule-time">11:00 AM</div>
+                    <div class="schedule-activity">From Sound to Silence <em>— music and chanting</em></div>
+                    <div class="schedule-time">12:30 PM</div>
+                    <div class="schedule-activity">Lunch</div>
+                    <div class="schedule-time">1:30 PM</div>
+                    <div class="schedule-activity">Rest <em>— yes, scheduled rest</em></div>
+                    <div class="schedule-time">3:30 PM</div>
+                    <div class="schedule-activity">Kalaripayattu & games on the lawn</div>
+                    <div class="schedule-time">5:30 PM</div>
+                    <div class="schedule-activity">Craft session</div>
+                    <div class="schedule-time">6:30 PM</div>
+                    <div class="schedule-activity">Dinner</div>
+                    <div class="schedule-time">8:00 PM</div>
+                    <div class="schedule-activity">Bonfire & night meditation</div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="schedule-day fade-in">
+                <div class="day-header">
+                    <span class="day-number">03</span>
+                    <span class="day-title">Carrying it home</span>
+                    <span class="day-subtitle">September 6</span>
+                </div>
+                <div class="schedule-items">
+                    <div class="schedule-time">6:00 AM</div>
+                    <div class="schedule-activity">Morning yoga on the lawn</div>
+                    <div class="schedule-time">7:00 AM</div>
+                    <div class="schedule-activity">Kalaripayattu</div>
+                    <div class="schedule-time">9:00 AM</div>
+                    <div class="schedule-activity">Breakfast</div>
+                    <div class="schedule-time">10:30 AM</div>
+                    <div class="schedule-activity">Traditional dress-up & Devi chant</div>
+                    <div class="schedule-time">12:00 PM</div>
+                    <div class="schedule-activity">Closing circle & experience sharing</div>
+                    <div class="schedule-time">1:00 PM</div>
+                    <div class="schedule-activity">Celebratory lunch & group photograph</div>
+                    <div class="schedule-time">2:30 PM</div>
+                    <div class="schedule-activity">Departure</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty -->
+    <section class="faculty" id="faculty">
+        <div style="text-align: center;" class="fade-in">
+            <div class="section-label">Who you will learn from</div>
+            <h2 class="section-title">Lifelong practitioners, <em>not weekend instructors</em></h2>
+        </div>
+        <div class="faculty-grid">
+            <div class="faculty-card fade-in">
+                <div class="faculty-avatar">U</div>
+                <h3>SriUsha Kalluri</h3>
+                <div class="faculty-role">Founder · Classical Hatha Yoga</div>
+                <p>Classical Hatha Yoga teacher who has guided actors, IAS officers, and corporate leaders. Isha Foundation volunteer since 2014, including the Save Soil campaign. A mother of a toddler — she knows the doing-everything life firsthand.</p>
+            </div>
+            <div class="faculty-card fade-in">
+                <div class="faculty-avatar">M</div>
+                <h3>Manasa Ganga</h3>
+                <div class="faculty-role">Classical Arts Curator</div>
+                <p>Sadhguru Gurukulam alumna with fifteen years in Hindustani music, and a classical Hatha Yoga teacher. A life spent rooted in spirituality and the yogic sciences.</p>
+            </div>
+            <div class="faculty-card fade-in">
+                <div class="faculty-avatar">A</div>
+                <h3>Aadarsh Kiran</h3>
+                <div class="faculty-role">Kalari Master</div>
+                <p>Sadhguru Gurukulam alumnus, KPCGM-certified Kalari master and national medalist with seventeen years of practice. Also a Hatha Yoga teacher.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment -->
+    <section class="investment" id="investment">
+        <div class="fade-in">
+            <div class="section-label">The investment</div>
+            <h2 class="section-title">An invitation to <em>fifteen women</em></h2>
+            <p style="color: rgba(245,240,232,0.6); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase;">All inclusive · Three days · Two nights</p>
+            
+            <div class="price">₹50,000</div>
+            <p class="price-note">per person · cohort of fifteen</p>
+
+            <div class="includes-grid">
+                <div class="include-item"><span>Full residential stay at Tavaro Resorts — <strong>single occupancy</strong>, air-conditioned</span></div>
+                <div class="include-item"><span>Every meal — fresh, vegetarian, composed to support the practices</span></div>
+                <div class="include-item"><span>The complete program — Yoga, Kalaripayattu, chanting, classical arts</span></div>
+                <div class="include-item"><span>Forty days of post-program engagement after you return home</span></div>
+                <div class="include-item"><span>A take-home wellness hamper</span></div>
+                <div class="include-item"><span>Personal attention in a cohort capped at 15</span></div>
+            </div>
+
+            <div class="post-program">
+                <p>And it does not end when you leave — forty days of guided engagement follow you home.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div style="text-align: center;" class="fade-in">
+            <div class="section-label">Stories of transformation</div>
+            <h2 class="section-title">What the retreat <em>changed</em> for them</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial fade-in">
+                <blockquote>
+                    The retreat was a truly transformative experience. It gave me the space to disconnect, 
+                    reflect, and reconnect with what really matters. The setting, the people, and the 
+                    guidance all came together perfectly — I left feeling refreshed and inspired.
+                </blockquote>
+                <div class="name">Archana Bysani</div>
+                <div class="role">Homemaker</div>
+            </div>
+            <div class="testimonial fade-in">
+                <blockquote>
+                    The way they made us connected with nature was fulfilling and content. It is a great 
+                    getaway from everyday routine and rejuvenate oneself.
+                </blockquote>
+                <div class="name">T. Deepthi Rao</div>
+                <div class="role">Teacher</div>
+            </div>
+        </div>
+        <p style="text-align: center; color: var(--light-gray); margin-top: 3rem; font-size: 0.9rem; font-style: italic;">
+            Every cohort is small enough that we know each woman's story — ask us about them on your enquiry call.
+        </p>
+    </section>
+
+    <!-- Venue -->
+    <section class="venue" id="venue">
+        <div class="venue-grid">
+            <div class="venue-info fade-in">
+                <div class="section-label">The setting</div>
+                <h3>Tavaro Resorts</h3>
+                <div class="location">Kokapet, Hyderabad</div>
+                <p>
+                    Minutes from Hyderabad, and a world away from it. Lawns for morning practice under open sky, 
+                    quiet air-conditioned rooms, and the kind of stillness the city never offers — close enough to 
+                    reach easily, far enough to truly switch off.
+                </p>
+                <div class="venue-dates">
+                    <div class="date-block">
+                        <div class="day">4</div>
+                        <div class="month">September</div>
+                        <div class="time">Check-in 2:00 PM</div>
+                    </div>
+                    <div class="date-separator">→</div>
+                    <div class="date-block">
+                        <div class="day">6</div>
+                        <div class="month">September</div>
+                        <div class="time">Check-out 2:30 PM</div>
+                    </div>
+                </div>
+            </div>
+            <div class="venue-visual fade-in"></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div style="text-align: center; margin-bottom: 4rem;" class="fade-in">
+            <div class="section-label">Questions</div>
+            <h2 class="section-title">Asked, <em>answered</em></h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    Who is this retreat for?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Women, 18 and above, who feel stretched thin by the pace of their lives — professionals, homemakers, teachers, anyone. No prior experience with yoga, Kalari, or music is needed.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    I've never done yoga or Kalari. Can I still join?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. Every session is taught from the basics and adapted to the group. Kalari sessions are introductory and safe for beginners.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    How fit do I need to be?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>If you can manage a brisk walk and sit on the floor, you're fine. If you have a medical condition, injury, or are pregnant, tell us during your enquiry call so we can advise.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    What is the food like?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Vegetarian, fresh, and light — designed to support the practices. Think khichdi, seasonal fruit, sprouts, millet dishes, soups. Tell us about allergies when you book.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    What are the rooms like?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Single occupancy, air-conditioned rooms with hot water at Tavaro Resorts, Kokapet. If you'd prefer to share a room with someone you know, ask during your enquiry call.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    What should I bring?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Comfortable clothing you can move in, walking shoes, a water bottle, personal medication, and one traditional outfit for the Day 3 Devi session. Yoga mats are provided.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    What happens after the three days?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>The retreat includes a 40-day post-program engagement — structured follow-through so the practices settle into your daily life rather than fading by the following week.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    How do I book?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Fill in the enquiry form. We'll call you within 24 hours, answer your questions, and share a payment link to confirm your seat. Seats are confirmed on payment, in order of payment received. The cohort is capped at 15.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    Can I get a refund if I can't make it?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Full refund minus a 5% processing fee up to 14 days before; 50% up to 7 days before; no refund within 7 days, though you may transfer your seat to another woman or to a future cohort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="reserve">
+        <div class="fade-in">
+            <h2>Fifteen seats. <em>One September.</em></h2>
+            <p>No payment is taken on this page. Send an enquiry, and we will call you within 24 hours.</p>
+            
+            <div class="cta-steps">
+                <div class="cta-step">
+                    <div class="num">1</div>
+                    <h4>Enquire</h4>
+                    <p>Send the form. It takes a minute, and commits you to nothing.</p>
+                </div>
+                <div class="cta-step">
+                    <div class="num">2</div>
+                    <h4>Speak with us</h4>
+                    <p>We call you within 24 hours — to answer your questions, and to make sure the retreat is right for you.</p>
+                </div>
+                <div class="cta-step">
+                    <div class="num">3</div>
+                    <h4>Confirm</h4>
+                    <p>We share a private payment link. Your seat is held on payment, in order of payment received.</p>
+                </div>
+            </div>
+
+            <a href="#" class="btn-primary">Reserve Your Place</a>
+            <br>
+            <a href="https://wa.me/" class="whatsapp-link">Prefer to talk first? Write to us on WhatsApp →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p> Ree Retreat · Sadhguru Gurukulam lineage · Hyderabad</p>
+        <p style="margin-top: 0.5rem;">Refund policy: Full refund minus 5% processing fee up to 14 days before; 50% up to 7 days; no refund within 7 days (transferable).</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Fade in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
