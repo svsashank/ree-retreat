@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ree — From Doing to Being | A Residential Retreat for Women · 4–6 Sept · Hyderabad</title>
+<meta name="description" content="A 3-day residential retreat for women facing burnout, built on Yoga, Kalari, chanting, and classical Indian arts. 15 women only. Tavaro Resorts, Kokapet, Hyderabad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* ==========================================================================
+   REE v2 — From Doing to Being
+   Design direction: Project Samskriti language, rebuilt from first principles.
+   Near-black stage, marigold display serif, warm off-white text, sand-cream
+   interludes, diagonal section edges, hand-drawn vine ornaments, wide-tracked
+   serif caps over duotone imagery. Gold-led where v1 was red-led.
+   (WhatsApp number, email & brochure link live in the CONFIG block at the
+    very bottom of this file.)
+   ========================================================================== */
+
+:root{
+  --ink:#0a0a0e;             /* stage black */
+  --ink-2:#101016;           /* card panel */
+  --ink-3:#15151d;
+  --marigold:#eda807;        /* lead accent — display headings, CTAs */
+  --marigold-dim:rgba(237,168,7,.35);
+  --burnt:#c4641d;           /* ornament orange */
+  --offwhite:#fefaf6;        /* text on dark */
+  --muted-on-dark:#b9ac9c;
+  --cream:#f4ede3;           /* sand interlude */
+  --cream-2:#ece2d2;
+  --ink-on-cream:#221a12;
+  --body-on-cream:#5c4d3c;
+  --hairline-dark:rgba(254,250,246,.12);
+  --hairline-gold:rgba(237,168,7,.28);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Work Sans',-apple-system,sans-serif;
+  --dev:'Noto Serif Devanagari',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-padding-top:90px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  font-family:var(--sans);font-weight:300;color:var(--offwhite);
+  background:var(--ink);line-height:1.85;font-size:16.5px;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12}
+a{color:var(--marigold)}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+
+/* grain over everything */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E");
+}
+
+/* ---------- shared ---------- */
+section{padding:120px 0;position:relative}
+.eyebrow{
+  font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.46em;
+  text-transform:uppercase;color:var(--muted-on-dark);text-align:center;
+  margin-bottom:24px;text-indent:.46em;
+}
+.display{
+  font-size:clamp(38px,5.6vw,62px);color:var(--marigold);text-align:center;
+  margin-bottom:26px;font-weight:500;letter-spacing:.01em;
+}
+.display em{font-style:italic;font-weight:400;color:var(--offwhite)}
+.lead{font-size:17.5px;max-width:640px;margin:0 auto;text-align:center;color:var(--muted-on-dark)}
+.on-cream{background:var(--cream);color:var(--body-on-cream)}
+.on-cream .eyebrow{color:#a1682a}
+.on-cream .display{color:var(--ink-on-cream)}
+.on-cream .display em{color:var(--burnt)}
+.on-cream .lead{color:var(--body-on-cream)}
+/* sand ripple texture on cream sections */
+.on-cream::before{
+  content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background:
+    repeating-linear-gradient(100deg,rgba(190,168,138,.07) 0 2px,transparent 2px 26px),
+    linear-gradient(180deg,var(--cream),var(--cream-2));
+}
+.on-cream>*{position:relative}
+
+/* diagonal section edges — the Samskriti slant */
+.slant-b{clip-path:polygon(0 0,100% 0,100% calc(100% - 4.5vw),0 100%)}
+.slant-t{margin-top:-4.6vw;padding-top:calc(120px + 4.6vw)}
+
+/* hand-drawn vine ornament */
+.vine{position:absolute;pointer-events:none;color:var(--burnt);opacity:.55;width:120px}
+.vine svg{width:100%;height:auto}
+.vine.left{left:2vw;top:110px}
+.vine.right{right:2vw;bottom:90px;transform:rotate(180deg)}
+@media(max-width:880px){.vine{display:none}}
+
+/* ---------- reveal on scroll (JS-gated; page readable with JS off) ---------- */
+@media(prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .js .reveal.visible{opacity:1;transform:none}
+  .js .reveal.d1{transition-delay:.1s}.js .reveal.d2{transition-delay:.2s}.js .reveal.d3{transition-delay:.3s}
+}
+
+/* ---------- styled placeholders (until real photography arrives) ---------- */
+.ph-slot{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(130% 130% at 18% 0%,rgba(196,100,29,.28),transparent 55%),
+    linear-gradient(160deg,#191921 0%,#0c0c11 70%);
+  display:flex;align-items:flex-end;
+}
+.ph-slot::before{
+  content:"";position:absolute;inset:0;opacity:.16;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E");
+}
+.ph-slot::after{content:"";position:absolute;inset:12px;border:1px solid rgba(237,168,7,.18);pointer-events:none}
+.ph-slot .ph-cap{
+  position:relative;z-index:1;padding:16px 20px;
+  font-family:var(--sans);font-weight:500;font-size:10.5px;letter-spacing:.34em;
+  text-transform:uppercase;color:rgba(237,168,7,.7);
+}
+.ph-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* ---------- nav ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(10,10,14,.9);backdrop-filter:blur(12px);border-bottom-color:var(--hairline-dark)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;max-width:1280px;margin:0 auto}
+.logo{display:flex;align-items:baseline;gap:12px;text-decoration:none}
+.logo .dev-mark{font-family:var(--dev);font-size:26px;color:var(--marigold);line-height:1}
+.logo-word{font-family:var(--serif);font-style:italic;font-size:28px;font-weight:500;color:var(--offwhite);letter-spacing:.04em}
+.logo-word small{display:block;font-family:var(--sans);font-style:normal;font-weight:500;font-size:8px;letter-spacing:.44em;text-transform:uppercase;color:var(--marigold);margin-top:2px}
+.nav-links{display:flex;gap:36px;align-items:center;list-style:none}
+.nav-links a{font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-on-dark);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--marigold)}
+.nav-cta{border:1px solid var(--marigold);color:var(--marigold)!important;padding:10px 24px;transition:.25s!important}
+.nav-cta:hover{background:var(--marigold);color:var(--ink)!important}
+@media(max-width:880px){.nav-links li:not(:last-child){display:none}}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:flex-end;position:relative;overflow:hidden;padding:150px 0 110px}
+/* IMAGE SLOT styling — media sits behind, graded to black at the base */
+.hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-bg .hero-bg-media{position:absolute;inset:0}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,10,14,.5) 0%,rgba(10,10,14,.42) 45%,rgba(10,10,14,.95) 100%);
+}
+@media(prefers-reduced-motion:no-preference){
+  .hero-bg .hero-bg-media{animation:kenburns 20s ease-out forwards;transform-origin:center}
+  @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.06)}}
+}
+.hero-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 32px;width:100%}
+.hero-kicker{
+  font-family:var(--sans);font-weight:500;font-size:12.5px;letter-spacing:.5em;
+  text-transform:uppercase;color:var(--marigold);margin-bottom:30px;
+}
+.hero h1{
+  font-size:clamp(58px,10vw,132px);color:var(--offwhite);font-weight:300;
+  letter-spacing:0;line-height:1.02;margin-bottom:6px;
+}
+.hero h1 .strong{display:block;font-weight:600;color:var(--offwhite)}
+.hero h1 .strong em{font-style:italic;font-weight:500;color:var(--marigold)}
+.hero-sub{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(19px,2.6vw,25px);max-width:580px;
+  color:var(--muted-on-dark);margin:24px 0 42px;line-height:1.5;
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:0;list-style:none;margin-bottom:46px;
+  border-top:1px solid var(--hairline-gold);border-bottom:1px solid var(--hairline-gold);
+  max-width:820px;
+}
+.hero-meta li{
+  padding:15px 32px 15px 0;margin-right:32px;font-family:var(--sans);font-weight:400;
+  font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--offwhite);
+  border-right:1px solid var(--hairline-dark);
+}
+.hero-meta li:last-child{border-right:none;margin-right:0;padding-right:0}
+.hero-meta li span{display:block;font-size:10.5px;letter-spacing:.28em;color:var(--marigold);margin-bottom:2px;font-weight:500}
+.btn-row{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.btn{
+  display:inline-block;text-decoration:none;font-family:var(--sans);font-weight:600;
+  font-size:13px;letter-spacing:.26em;text-transform:uppercase;
+  padding:19px 44px;transition:.3s;text-align:center;text-indent:.26em;
+  border:none;cursor:pointer;position:relative;overflow:hidden;
+}
+.btn>*{position:relative;z-index:1}
+.btn::before{content:"";position:absolute;inset:0;transform:scaleX(0);transform-origin:left;z-index:0}
+@media(prefers-reduced-motion:no-preference){
+  .btn::before{transition:transform .45s cubic-bezier(.16,1,.3,1)}
+  .btn .arr{transition:transform .3s ease}
+}
+.btn:hover::before,.btn:active::before{transform:scaleX(1)}
+.btn:hover .arr,.btn:active .arr{transform:translateX(4px)}
+.btn .arr{display:inline-block;margin-left:10px;text-indent:0}
+.btn-gold{background:var(--marigold);color:var(--ink)}
+.btn-gold::before{background:rgba(10,10,14,.12)}
+.btn-ghost{border:1px solid rgba(254,250,246,.4);color:var(--offwhite)}
+.btn-ghost::before{background:rgba(254,250,246,.08)}
+.btn-ghost:hover{border-color:var(--marigold);color:var(--marigold)}
+.cta-micro{margin-top:16px;font-size:12.5px;letter-spacing:.06em;color:var(--muted-on-dark)}
+.limit-line{margin-top:26px;display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;color:var(--muted-on-dark)}
+.limit-line i{width:7px;height:7px;border-radius:50%;background:var(--marigold);box-shadow:0 0 12px 2px rgba(237,168,7,.7);font-style:normal}
+.limit-line strong{color:var(--marigold);font-weight:600}
+/* hero entrance — pure CSS, ends visible, safe with JS off */
+@media(prefers-reduced-motion:no-preference){
+  .hero-kicker,.hero h1,.hero-sub,.hero-meta,.hero .btn-row,.hero .cta-micro,.hero .limit-line{
+    opacity:0;animation:rise .9s cubic-bezier(.16,1,.3,1) forwards;
+  }
+  .hero-kicker{animation-delay:.1s}.hero h1{animation-delay:.25s}.hero-sub{animation-delay:.45s}
+  .hero-meta{animation-delay:.62s}.hero .btn-row{animation-delay:.78s}
+  .hero .cta-micro{animation-delay:.88s}.hero .limit-line{animation-delay:.96s}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+}
+
+/* ---------- manifesto (cream interlude) ---------- */
+.manifesto{padding:130px 0 120px}
+.manifesto-inner{max-width:800px;margin:0 auto;padding:0 28px;text-align:center}
+.manifesto .big-line{
+  font-family:var(--serif);font-size:clamp(30px,4.8vw,50px);color:var(--ink-on-cream);
+  line-height:1.3;font-weight:400;margin-bottom:44px;
+}
+.manifesto .big-line em{font-style:italic;color:var(--burnt)}
+.manifesto p{font-size:17.5px;margin-bottom:22px;color:var(--body-on-cream);text-align:left;font-weight:400}
+.etym{
+  margin:60px auto 0;max-width:560px;padding:40px 40px 34px;position:relative;
+  border-top:1px solid rgba(196,100,29,.35);border-bottom:1px solid rgba(196,100,29,.35);
+}
+.etym .word{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--burnt)}
+.etym p{font-size:15px;text-align:center;margin:8px 0 0;color:#8a6b48;font-weight:400}
+.dev{font-family:var(--dev);font-style:normal}
+.ree-mark{display:block;width:120px;height:auto;margin:0 auto 8px}
+.ree-glyph{font-family:var(--dev);font-size:100px;fill:var(--burnt);stroke:var(--marigold);stroke-width:.8}
+@media(prefers-reduced-motion:no-preference){
+  .js .etym.reveal .ree-glyph{
+    fill-opacity:0;stroke-dasharray:900;stroke-dashoffset:900;
+    transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1) .2s,fill-opacity .9s ease 1.5s;
+  }
+  .js .etym.reveal.visible .ree-glyph{stroke-dashoffset:0;fill-opacity:1}
+}
+
+/* ---------- approach ---------- */
+.practices{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:70px}
+.practice{background:var(--ink-2);border:1px solid var(--hairline-dark);position:relative;overflow:hidden}
+.practice .p-img{aspect-ratio:16/9}
+.practice .p-body{padding:36px 38px 38px}
+.practice .p-tags{display:flex;gap:10px;margin-bottom:18px}
+.pill{
+  font-family:var(--sans);font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted-on-dark);border:1px solid var(--hairline-dark);padding:6px 14px;border-radius:99px;
+}
+.practice h3{font-size:27px;color:var(--offwhite);font-weight:500;margin-bottom:12px}
+.practice p{font-size:14.5px;line-height:1.85;color:var(--muted-on-dark);font-weight:300}
+.practice .pquote{font-family:var(--serif);font-style:italic;font-size:15.5px;color:#cfc2b1}
+.practice .attr{display:block;margin-top:12px;font-family:var(--sans);font-weight:500;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--marigold)}
+@media(max-width:880px){.practices{grid-template-columns:1fr}}
+
+/* ---------- word wall (wide-tracked serif caps over duotone band) ---------- */
+.wordwall{position:relative;overflow:hidden;padding:110px 0;text-align:center}
+.wordwall .ww-bg{position:absolute;inset:0}
+.wordwall .ww-bg::after{content:"";position:absolute;inset:0;background:rgba(10,10,14,.78)}
+.wordwall .ww-line{
+  position:relative;z-index:1;font-family:var(--serif);font-weight:400;
+  font-size:clamp(22px,4.2vw,44px);letter-spacing:.55em;text-indent:.55em;
+  color:var(--offwhite);text-transform:uppercase;line-height:2;
+}
+.wordwall .ww-line.gold{color:var(--marigold);font-weight:500}
+
+/* ---------- research (cream) ---------- */
+.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:66px}
+.research-card{
+  background:rgba(255,252,246,.66);border:1px solid rgba(160,120,70,.25);
+  padding:42px 34px 36px;display:flex;flex-direction:column;position:relative;
+}
+.research-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--marigold),rgba(237,168,7,.1))}
+.research-card h3{font-size:22px;color:var(--ink-on-cream);font-weight:500;margin-bottom:14px}
+.research-card p{font-size:14.5px;line-height:1.85;color:var(--body-on-cream);margin-bottom:24px;font-weight:400}
+.paper-link{
+  margin-top:auto;font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--burnt);text-decoration:none;border-bottom:1px solid rgba(196,100,29,.4);
+  padding-bottom:4px;align-self:flex-start;transition:color .25s,border-color .25s;
+}
+.paper-link:hover{color:#8a4512;border-color:var(--burnt)}
+.paper-link .arr{display:inline-block;margin-left:6px}
+@media(prefers-reduced-motion:no-preference){.paper-link .arr{transition:transform .3s}}
+.paper-link:hover .arr{transform:translateX(4px)}
+.research-scope{
+  margin:56px auto 0;max-width:620px;text-align:center;
+  font-family:var(--serif);font-style:italic;font-size:16.5px;color:#8a6b48;
+}
+@media(max-width:880px){.research-grid{grid-template-columns:1fr;gap:20px}}
+
+/* ---------- itinerary day cards ---------- */
+.day-list{max-width:700px;margin:66px auto 0}
+.day-card{background:var(--ink-2);border:1px solid var(--hairline-dark);margin-bottom:14px;position:relative}
+.day-card::before{
+  content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:2px;
+  background:var(--marigold);transform:scaleY(0);transform-origin:top;
+}
+@media(prefers-reduced-motion:no-preference){.day-card::before{transition:transform .5s cubic-bezier(.16,1,.3,1)}}
+.day-card.expanded::before,html:not(.js) .day-card[open]::before{transform:scaleY(1)}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+.day-card summary{
+  padding:26px 30px;display:flex;align-items:center;gap:18px;
+  font-family:var(--sans);font-weight:500;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--muted-on-dark);transition:color .3s;
+}
+.day-card summary:hover,.day-card.expanded summary{color:var(--marigold)}
+.day-card summary .roman{font-family:var(--serif);font-style:italic;font-size:24px;letter-spacing:.02em;text-transform:none;color:inherit}
+.chev{
+  flex:none;width:30px;height:30px;border:1px solid var(--hairline-gold);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--marigold);
+  font-family:var(--sans);font-size:15px;margin-left:auto;
+}
+@media(prefers-reduced-motion:no-preference){.chev{transition:transform .3s,background .3s}}
+details[open]:not(.acc) summary .chev,html:not(.js) details[open] summary .chev,details.acc.expanded summary .chev{transform:rotate(45deg);background:rgba(237,168,7,.1)}
+.day-card .day-body-pad{padding:8px 46px 44px}
+.acc-inner{overflow:hidden}
+.js details.acc>.acc-body{display:grid;grid-template-rows:0fr}
+.js details.acc.expanded>.acc-body{grid-template-rows:1fr}
+@media(prefers-reduced-motion:no-preference){
+  .js details.acc>.acc-body{transition:grid-template-rows .65s cubic-bezier(.16,1,.3,1)}
+}
+/* timeline */
+.tl{list-style:none;position:relative;padding-left:150px}
+.tl::before{content:"";position:absolute;left:118px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,transparent,var(--hairline-gold) 8%,var(--hairline-gold) 92%,transparent)}
+.tl li{position:relative;padding:0 0 30px 34px}
+.tl li:last-child{padding-bottom:0}
+.tl .time{position:absolute;left:-150px;width:118px;text-align:right;top:3px;font-family:var(--sans);font-weight:500;font-size:11.5px;letter-spacing:.16em;color:var(--marigold)}
+.tl li::before{content:"";position:absolute;left:-4px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--ink);border:1px solid var(--marigold)}
+.tl .what{font-family:var(--serif);font-size:19px;color:var(--offwhite);line-height:1.45;font-weight:400}
+.tl .note{font-size:12.5px;letter-spacing:.06em;color:var(--muted-on-dark);font-style:italic}
+@media(max-width:640px){
+  .tl{padding-left:96px}.tl::before{left:76px}
+  .tl .time{left:-96px;width:76px;font-size:10.5px}
+}
+
+/* ---------- faculty (cream) ---------- */
+.faculty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:74px}
+.teacher{background:rgba(255,252,246,.6);border:1px solid rgba(160,120,70,.25)}
+.teacher .t-img{aspect-ratio:3/3.6}
+.teacher .t-body{padding:30px 30px 34px;text-align:center}
+.teacher h3{font-size:25px;color:var(--ink-on-cream);font-weight:500}
+.teacher .role{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--burnt);margin:10px 0 16px}
+.teacher .role::after{content:"";display:block;width:34px;height:1px;background:rgba(196,100,29,.4);margin:14px auto 0}
+.teacher p{font-size:14px;line-height:1.85;color:var(--body-on-cream);font-weight:400}
+@media(max-width:880px){.faculty-grid{grid-template-columns:1fr;gap:40px}}
+
+/* ---------- investment card ---------- */
+.invite-card{
+  max-width:680px;margin:70px auto 0;text-align:center;
+  background:var(--ink-2);border:1px solid var(--hairline-gold);position:relative;
+}
+.invite-card .ic-body{padding:70px 56px 0}
+.invite-card .small-caps{font-family:var(--sans);font-weight:500;font-size:11.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--marigold);margin-bottom:20px;text-indent:.42em}
+.price{font-family:var(--serif);font-size:clamp(56px,8vw,80px);color:var(--offwhite);font-weight:300;line-height:1}
+.price .rupee{font-size:.5em;vertical-align:.4em;color:var(--marigold);margin-right:6px}
+.invite-card .per{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted-on-dark);margin:14px 0 42px}
+.inc-list{list-style:none;max-width:460px;margin:0 auto;text-align:left}
+.inc-list li{
+  padding:15px 0;border-bottom:1px solid var(--hairline-dark);
+  display:flex;gap:16px;align-items:baseline;font-size:14.5px;color:#d8ccbc;font-weight:400;
+}
+.inc-list li:last-child{border-bottom:none}
+.inc-list .tick{color:var(--marigold);font-size:11px;flex:none}
+.forty{margin:42px auto 46px;font-family:var(--serif);font-style:italic;font-size:clamp(19px,3vw,24px);color:var(--marigold);max-width:520px}
+/* gold caps bar CTA — the Samskriti "REGISTER NOW" bar */
+.bar-cta{
+  display:block;width:100%;padding:24px 20px;background:rgba(237,168,7,.08);
+  border-top:1px solid var(--hairline-gold);
+  font-family:var(--sans);font-weight:600;font-size:13.5px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--marigold);text-decoration:none;text-indent:.32em;transition:.3s;
+}
+.bar-cta:hover{background:var(--marigold);color:var(--ink)}
+@media(max-width:560px){.invite-card .ic-body{padding:52px 26px 0}}
+
+/* ---------- testimonials (cream) ---------- */
+.quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:70px}
+.quote-card{background:rgba(255,252,246,.66);border:1px solid rgba(160,120,70,.25);padding:48px 42px 42px;position:relative}
+.quote-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--burnt),rgba(196,100,29,.1))}
+.quote-card .mark{font-family:var(--serif);font-size:70px;line-height:.4;color:var(--marigold);display:block;margin-bottom:30px}
+.quote-card blockquote{font-family:var(--serif);font-size:19.5px;font-style:italic;font-weight:300;color:#3c2c1c;line-height:1.65;margin-bottom:28px}
+.quote-card cite{font-style:normal;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--burnt)}
+.quote-card cite span{display:block;font-weight:400;font-size:12px;letter-spacing:.14em;color:#8a6b48;margin-top:6px;text-transform:none}
+.stories-note{margin:54px auto 0;max-width:560px;text-align:center;font-family:var(--serif);font-style:italic;font-size:17px;color:#8a6b48}
+@media(max-width:880px){.quote-grid{grid-template-columns:1fr}}
+
+/* ---------- venue ---------- */
+.venue-text{max-width:640px;margin:64px auto 0;text-align:center}
+.venue-text p{font-size:16px;margin-bottom:18px;color:var(--muted-on-dark);font-weight:300}
+.venue-times{margin-top:34px;border-top:1px solid var(--hairline-dark);padding-top:24px;display:flex;gap:50px;justify-content:center}
+.venue-times div{font-family:var(--sans);font-weight:400;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--offwhite)}
+.venue-times span{display:block;font-size:10.5px;letter-spacing:.26em;color:var(--marigold);margin-bottom:6px;font-weight:500}
+.gallery{margin-top:64px}
+.gallery-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.gallery-track::-webkit-scrollbar{display:none}
+.g-item{flex:0 0 min(78%,640px);aspect-ratio:16/10;scroll-snap-align:start}
+.gallery-progress{height:1px;background:rgba(237,168,7,.2);margin-top:24px;position:relative;overflow:hidden}
+.gallery-progress i{position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--marigold);transform-origin:left;transform:scaleX(.2)}
+@media(prefers-reduced-motion:no-preference){.gallery-progress i{transition:transform .3s ease-out}}
+
+/* ---------- faq (cream) ---------- */
+.faq-list{max-width:760px;margin:64px auto 0}
+.faq-list details{border-bottom:1px solid rgba(120,90,55,.28)}
+.faq-list details:first-of-type{border-top:1px solid rgba(120,90,55,.28)}
+.faq-list summary{
+  padding:26px 4px;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  font-family:var(--serif);font-size:20.5px;color:var(--ink-on-cream);font-weight:400;transition:color .25s;
+}
+.faq-list summary:hover{color:var(--burnt)}
+.faq-list .chev{border-color:rgba(196,100,29,.4);color:var(--burnt);margin-left:0}
+.faq-list details.expanded summary .chev{background:rgba(196,100,29,.1)}
+.faq-list .ans{padding:0 4px 30px;font-size:15px;color:var(--body-on-cream);max-width:620px;line-height:1.9;font-weight:400}
+
+/* ---------- enquiry ---------- */
+.book-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:80px;margin-top:70px;align-items:start}
+.book-side h3{font-family:var(--serif);color:var(--offwhite);font-size:29px;font-weight:500;margin-bottom:28px}
+.steps{list-style:none;counter-reset:step}
+.steps li{counter-increment:step;position:relative;padding:0 0 34px 66px}
+.steps li::before{
+  content:counter(step,upper-roman);position:absolute;left:0;top:-2px;
+  font-family:var(--serif);font-style:italic;font-size:24px;color:var(--marigold);width:42px;text-align:center;
+}
+.steps li::after{content:"";position:absolute;left:21px;top:36px;bottom:6px;width:1px;background:var(--hairline-gold)}
+.steps li:last-child::after{display:none}
+.steps .st-title{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--offwhite);margin-bottom:6px}
+.steps p{font-size:14.5px;color:var(--muted-on-dark);line-height:1.8;font-weight:300}
+.aside-contact{margin-top:20px;font-size:14.5px;color:var(--muted-on-dark)}
+.aside-contact a{color:var(--marigold);text-decoration:none;border-bottom:1px solid var(--marigold-dim)}
+form{background:var(--ink-2);border:1px solid var(--hairline-gold);padding:52px 46px;position:relative}
+.form-head{text-align:center;margin-bottom:34px}
+.form-head .fh-caps{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--marigold);text-indent:.4em}
+.form-head h3{font-family:var(--serif);font-size:27px;color:var(--offwhite);font-weight:500;margin-top:8px}
+.field{margin-bottom:20px}
+label{display:block;font-family:var(--sans);font-weight:500;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:8px;color:var(--muted-on-dark)}
+label .opt{color:#8d8172;letter-spacing:.14em;text-transform:none;font-weight:300}
+input,textarea{
+  width:100%;border:none;border-bottom:1px solid rgba(254,250,246,.25);background:transparent;
+  padding:10px 2px 12px;font-family:var(--serif);font-size:18px;color:var(--offwhite);
+  border-radius:0;transition:border-color .3s;
+}
+input:focus,textarea:focus{outline:none;border-bottom-color:var(--marigold)}
+textarea{min-height:76px;resize:vertical;font-size:17px}
+.form-note{font-size:12.5px;color:var(--muted-on-dark);margin:26px 0 24px;text-align:center;line-height:1.7}
+.submit-btn{width:100%}
+.confirm{display:none;margin-top:22px;text-align:center;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--marigold);padding:16px;border-top:1px solid var(--hairline-gold)}
+@media(max-width:880px){.book-grid{grid-template-columns:1fr;gap:56px}form{padding:44px 26px}}
+
+/* ---------- footer ---------- */
+footer{background:#070709;color:var(--muted-on-dark);padding:90px 0 50px;font-size:14px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;max-width:1140px;margin:0 auto;padding:0 28px}
+footer h4{font-family:var(--serif);font-style:italic;color:var(--offwhite);font-size:25px;font-weight:400;margin-bottom:16px}
+footer .caps-sm{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--marigold);margin-bottom:14px}
+footer p{line-height:1.9;font-weight:300}
+footer a{color:var(--marigold);text-decoration:none;border-bottom:1px solid var(--marigold-dim)}
+.legal{max-width:1140px;margin:64px auto 0;padding:30px 28px 0;border-top:1px solid var(--hairline-dark);font-size:12.5px;color:#8d8172}
+.legal details{border:none}
+.legal summary{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--marigold);padding:10px 0;display:flex;align-items:center;gap:12px}
+.legal .chev{width:22px;height:22px;font-size:12px;margin-left:0}
+.legal .ans{color:#a3947f;font-size:13px;max-width:720px}
+.legal ul{margin:10px 0 10px 20px}
+.legal .copyright{margin-top:26px;letter-spacing:.06em}
+@media(max-width:720px){.foot-grid{grid-template-columns:1fr;gap:40px}}
+
+/* ---------- small screens ---------- */
+@media(max-width:640px){
+  section{padding:72px 0}
+  .manifesto{padding:84px 0 76px}
+  .hero{padding:130px 0 90px}
+  .hero h1{font-size:clamp(46px,14vw,64px)}
+  .hero-sub{font-size:18px;margin-bottom:30px}
+  .hero-meta{border:none;display:block;margin-bottom:36px}
+  .hero-meta li{border:none;border-top:1px solid var(--hairline-gold);padding:12px 0;margin:0;display:flex;justify-content:space-between;align-items:baseline;width:100%}
+  .hero-meta li:last-child{border-bottom:1px solid var(--hairline-gold)}
+  .btn-row{flex-direction:column;align-items:stretch;gap:12px}
+  .btn{width:100%;padding:17px 20px}
+  .display{font-size:clamp(30px,8.4vw,40px)}
+  .practice .p-body{padding:28px 22px 30px}
+  .day-card summary{padding:20px 18px;font-size:11px;letter-spacing:.18em;gap:12px}
+  .day-card summary .roman{font-size:20px}
+  .day-card .day-body-pad{padding:6px 18px 28px}
+  .g-item{flex-basis:86%}
+  .quote-card{padding:36px 26px 32px}
+  .quote-card blockquote{font-size:17.5px}
+  .faq-list summary{font-size:18px}
+  .steps li{padding-left:56px}
+  .venue-times{flex-wrap:wrap;gap:20px 40px}
+  .wordwall .ww-line{letter-spacing:.32em;text-indent:.32em}
+  .logo-word{font-size:24px}
+  .slant-b{clip-path:polygon(0 0,100% 0,100% calc(100% - 7vw),0 100%)}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="siteHeader">
+  <nav class="nav">
+    <a class="logo" href="#top" aria-label="Ree — home">
+      <span class="dev-mark" aria-hidden="true">री</span>
+      <span class="logo-word">ree<small>from doing to being</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#approach">The Approach</a></li>
+      <li><a href="#itinerary">The Days</a></li>
+      <li><a href="#faculty">Faculty</a></li>
+      <li><a href="#book" class="nav-cta">Enquire</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <!-- IMAGE SLOT: hero — full-bleed background, landscape ≥1600px wide.
+       Swap the .ph-slot div below for:
+       <picture><source type="image/avif" srcset="..."><source type="image/webp" srcset="...">
+       <img src="hero.jpg" srcset="hero-800.jpg 800w, hero-1600.jpg 1600w" sizes="100vw" alt="" fetchpriority="high"></picture>
+       inside .hero-bg-media. Dark grade + Ken Burns are pre-applied.
+       Art direction: real practice in warm evening light — movement, hands,
+       material. No stock poses, no spa imagery. -->
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-bg-media ph-slot"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-kicker">A residential retreat for women · Hyderabad</div>
+    <h1>From doing<span class="strong">to <em>being.</em></span></h1>
+    <p class="hero-sub">Three days rooted in Yoga, Kalaripayattu, chanting, and the classical arts — to learn what no holiday teaches: how to be replenished from within.</p>
+    <ul class="hero-meta">
+      <li><span>Dates</span>4 – 6 September 2026</li>
+      <li><span>Venue</span>Tavaro Resorts, Hyderabad</li>
+      <li><span>Cohort</span>15 women only</li>
+      <li><span>Stay</span>Private rooms</li>
+    </ul>
+    <div class="btn-row">
+      <a class="btn btn-gold" href="#book"><span>Begin Your Enquiry</span><span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#" id="brochureBtn"><span>The Brochure</span></a>
+    </div>
+    <p class="cta-micro">A conversation first. No payment is required to enquire.</p>
+    <div class="limit-line"><i></i><span>Limited to <strong>15 participants</strong>.</span></div>
+  </div>
+</section>
+
+<!-- ================= MANIFESTO (cream interlude) ================= -->
+<section class="manifesto on-cream slant-b">
+  <div class="manifesto-inner">
+    <div class="eyebrow reveal">Why Ree exists</div>
+    <p class="big-line reveal">You have been doing.<br>And doing. <em>And doing.</em></p>
+    <div class="reveal d1">
+      <p>The work, the home, the people who depend on you — you hold it all up, gracefully, and somewhere along the way the tiredness stopped going away with sleep. That is not weakness. That is what happens when everything flows out and nothing flows back in.</p>
+      <p>A holiday distracts you from it, for a while. Ree does something else entirely: it teaches you to replenish from within, through practices that Indian traditional sciences have refined over centuries — so that the steadiness returns home with you, and stays.</p>
+    </div>
+    <div class="etym reveal d2">
+      <svg class="ree-mark" viewBox="0 0 240 170" aria-hidden="true" focusable="false">
+        <text x="120" y="126" text-anchor="middle" class="ree-glyph">री</text>
+      </svg>
+      <span class="word">ree</span>
+      <p>Ree evokes movement, rhythm, and flow. Its sound echoes <em>strī</em> — <span class="dev">स्त्री</span> — the Sanskrit word for woman.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPROACH ================= -->
+<section class="approach" id="approach">
+  <div class="vine left" aria-hidden="true">
+    <svg viewBox="0 0 60 300" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+      <path d="M30 0 C 22 40, 40 70, 30 110 C 20 150, 42 180, 30 220 C 22 255, 36 280, 30 300"/>
+      <path d="M30 60 C 40 52, 50 54, 56 44"/><path d="M30 62 C 42 64, 48 74, 58 76"/>
+      <path d="M30 150 C 20 142, 12 146, 4 138"/><path d="M30 152 C 18 156, 14 166, 4 170"/>
+      <path d="M30 240 C 40 232, 48 236, 56 228"/>
+      <circle cx="56" cy="42" r="1.6" fill="currentColor"/><circle cx="4" cy="136" r="1.6" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow reveal">The approach</div>
+    <h2 class="display reveal">Four sciences. <em>One immersion.</em></h2>
+    <p class="lead reveal d1">Not a spa getaway. Not a generic yoga weekend. A cultural immersion into traditions refined over centuries — taught by lifelong practitioners of the Sadhguru Gurukulam lineage.</p>
+
+    <div class="practices">
+      <!-- IMAGE SLOT: practice-yoga — 16:9 crop, hands in mudra. Tight detail, not a full scene.
+           Replace ph-slot contents with <img src="..." loading="lazy" alt="Hands resting in mudra"> -->
+      <div class="practice reveal">
+        <div class="p-img ph-slot"><span class="ph-cap">Mudra</span></div>
+        <div class="p-body">
+          <div class="p-tags"><span class="pill">Practice</span><span class="pill">Daily</span></div>
+          <h3>Classical Hatha Yoga</h3>
+          <p class="pquote">&ldquo;Your physical health, your psychological wellbeing, and your spiritual possibility depend on how well aligned you are with existence. Essentially, Hatha Yoga is towards establishing this alignment.&rdquo;</p>
+          <span class="attr">— Sadhguru</span>
+        </div>
+      </div>
+      <!-- IMAGE SLOT: practice-kalari — 16:9 crop, Kalari stance mid-motion. -->
+      <div class="practice reveal d1">
+        <div class="p-img ph-slot"><span class="ph-cap">Kalari</span></div>
+        <div class="p-body">
+          <div class="p-tags"><span class="pill">Movement</span><span class="pill">Beginner-safe</span></div>
+          <h3>Kalaripayattu</h3>
+          <p>Known as &ldquo;the mother of all martial arts,&rdquo; Kalaripayattu is said to have originated from the Dhanurveda, a scientific treatise on the art of warfare in ancient Bharat. Learn three sets of practices which enhance flexibility, balance, and strength in the body.</p>
+        </div>
+      </div>
+      <!-- IMAGE SLOT: practice-sound — 16:9 crop, tanpura or vocalist. Instrument and light, not a stage. -->
+      <div class="practice reveal d2">
+        <div class="p-img ph-slot"><span class="ph-cap">Sound</span></div>
+        <div class="p-body">
+          <div class="p-tags"><span class="pill">Sound</span><span class="pill">Stillness</span></div>
+          <h3>Chanting &amp; Music</h3>
+          <p>From sound to silence — Hindustani music and traditional chants that settle the nervous system in ways words cannot.</p>
+        </div>
+      </div>
+      <!-- IMAGE SLOT: practice-arts — 16:9 crop, craft materials in hand. -->
+      <div class="practice reveal d3">
+        <div class="p-img ph-slot"><span class="ph-cap">Craft</span></div>
+        <div class="p-body">
+          <div class="p-tags"><span class="pill">Craft</span><span class="pill">Celebration</span></div>
+          <h3>Classical Arts</h3>
+          <p>Craft, movement, and a traditional Devi celebration — beauty and culture as an essential part of the medicine.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORD WALL ================= -->
+<!-- IMAGE SLOT: wordwall band — full-width duotone/monochrome photograph, ≥1600px wide,
+     short height. Dark overlay is pre-applied so the type carries. -->
+<div class="wordwall" aria-hidden="true">
+  <div class="ww-bg ph-slot"></div>
+  <div class="ww-line reveal">Yoga · Kalari</div>
+  <div class="ww-line reveal d1">Chants · Craft</div>
+  <div class="ww-line gold reveal d2">Being</div>
+</div>
+
+<!-- ================= RESEARCH (cream) ================= -->
+<section class="research on-cream slant-b" id="research">
+  <div class="wrap">
+    <div class="eyebrow reveal">What the research says</div>
+    <h2 class="display reveal">Practices that have been <em>measured</em></h2>
+
+    <div class="research-grid">
+      <div class="research-card reveal">
+        <h3>Yoga for stress and burnout</h3>
+        <p>A systematic review of yoga-based programs for healthcare workers found measurable reductions in stress and burnout markers.</p>
+        <a class="paper-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6462946/" target="_blank" rel="noopener">Read the paper<span class="arr">→</span></a>
+      </div>
+      <div class="research-card reveal d1">
+        <h3>A 15-minute practice, measured</h3>
+        <p>A single 15-minute Isha Kriya meditation reduced stress and mood disturbance among operating-room professionals in a controlled study.</p>
+        <a class="paper-link" href="https://f1000research.com/articles/8-335/v1" target="_blank" rel="noopener">Read the paper<span class="arr">→</span></a>
+      </div>
+      <div class="research-card reveal d2">
+        <h3>Meditation over weeks</h3>
+        <p>An observational study of guided meditation training found self-reported anxiety and depression symptoms improved within two weeks of practice.</p>
+        <a class="paper-link" href="https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2022.944973/full" target="_blank" rel="noopener">Read the paper<span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <p class="research-scope reveal">These studies examined specific yoga and meditation practices, not the Ree program itself. Ree is a wellness experience, not a medical or therapeutic intervention.</p>
+  </div>
+</section>
+
+<!-- ================= ITINERARY ================= -->
+<section class="itinerary" id="itinerary">
+  <div class="vine right" aria-hidden="true">
+    <svg viewBox="0 0 60 300" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+      <path d="M30 0 C 22 40, 40 70, 30 110 C 20 150, 42 180, 30 220 C 22 255, 36 280, 30 300"/>
+      <path d="M30 60 C 40 52, 50 54, 56 44"/><path d="M30 62 C 42 64, 48 74, 58 76"/>
+      <path d="M30 150 C 20 142, 12 146, 4 138"/><path d="M30 152 C 18 156, 14 166, 4 170"/>
+      <path d="M30 240 C 40 232, 48 236, 56 228"/>
+      <circle cx="56" cy="42" r="1.6" fill="currentColor"/><circle cx="4" cy="136" r="1.6" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow reveal">Your three days</div>
+    <h2 class="display reveal">A gentle arc, <em>by design</em></h2>
+    <p class="lead reveal d1">Arrive and unwind. Go deeper. Then carry it home.</p>
+
+    <div class="day-list reveal">
+    <details class="day-card acc" open>
+      <summary><span class="roman">I</span>Day One · Arriving <span class="chev">＋</span></summary>
+      <div class="acc-body"><div class="acc-inner"><div class="day-body-pad">
+      <ul class="tl">
+        <li><span class="time">2:00 PM</span><span class="what">Check-in &amp; welcome drink</span></li>
+        <li><span class="time">3:30 PM</span><span class="what">Opening circle — a traditional welcome</span></li>
+        <li><span class="time">4:00 PM</span><span class="what">Games &amp; getting to know each other</span></li>
+        <li><span class="time">5:00 PM</span><span class="what">Evening yoga session</span></li>
+        <li><span class="time">7:00 PM</span><span class="what">Light dinner</span></li>
+        <li><span class="time">8:15 PM</span><span class="what">Night session</span></li>
+      </ul>
+      </div></div></div>
+    </details>
+
+    <details class="day-card acc">
+      <summary><span class="roman">II</span>Day Two · Going deeper <span class="chev">＋</span></summary>
+      <div class="acc-body"><div class="acc-inner"><div class="day-body-pad">
+      <ul class="tl">
+        <li><span class="time">6:00 AM</span><span class="what">Morning yoga</span></li>
+        <li><span class="time">7:45 AM</span><span class="what">Kalaripayattu &amp; games</span></li>
+        <li><span class="time">9:00 AM</span><span class="what">Breakfast</span></li>
+        <li><span class="time">11:00 AM</span><span class="what">From Sound to Silence — music and chanting</span></li>
+        <li><span class="time">12:30 PM</span><span class="what">Lunch</span></li>
+        <li><span class="time">1:30 PM</span><span class="what">Rest <span class="note">— yes, scheduled rest</span></span></li>
+        <li><span class="time">3:30 PM</span><span class="what">Kalaripayattu &amp; games on the lawn</span></li>
+        <li><span class="time">5:30 PM</span><span class="what">Craft session</span></li>
+        <li><span class="time">6:30 PM</span><span class="what">Dinner</span></li>
+        <li><span class="time">8:00 PM</span><span class="what">Bonfire &amp; night meditation</span></li>
+      </ul>
+      </div></div></div>
+    </details>
+
+    <details class="day-card acc">
+      <summary><span class="roman">III</span>Day Three · Carrying it home <span class="chev">＋</span></summary>
+      <div class="acc-body"><div class="acc-inner"><div class="day-body-pad">
+      <ul class="tl">
+        <li><span class="time">6:00 AM</span><span class="what">Morning yoga on the lawn</span></li>
+        <li><span class="time">7:00 AM</span><span class="what">Kalaripayattu</span></li>
+        <li><span class="time">9:00 AM</span><span class="what">Breakfast</span></li>
+        <li><span class="time">10:30 AM</span><span class="what">Traditional dress-up &amp; Devi chant</span></li>
+        <li><span class="time">12:00 PM</span><span class="what">Closing circle &amp; experience sharing</span></li>
+        <li><span class="time">1:00 PM</span><span class="what">Celebratory lunch &amp; group photograph</span></li>
+        <li><span class="time">2:30 PM</span><span class="what">Departure</span></li>
+      </ul>
+      </div></div></div>
+    </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FACULTY (cream) ================= -->
+<section class="faculty on-cream slant-b" id="faculty">
+  <div class="wrap">
+    <div class="eyebrow reveal">Who you will learn from</div>
+    <h2 class="display reveal">Lifelong practitioners,<br><em>not weekend instructors</em></h2>
+
+    <!-- IMAGE SLOT: faculty portraits ×3 — identical 3:3.6 crop, identical warm tonal
+         grade across all three. Replace each .t-img ph-slot's contents with
+         <img src="..." loading="lazy" alt="Portrait of <name>"> -->
+    <div class="faculty-grid">
+      <div class="teacher reveal">
+        <div class="t-img ph-slot"><span class="ph-cap">Portrait</span></div>
+        <div class="t-body">
+          <h3>SriUsha Kalluri</h3>
+          <div class="role">Founder · Classical Hatha Yoga</div>
+          <p>Classical Hatha Yoga teacher who has guided actors, IAS officers, and corporate leaders through their transformation. Isha Foundation volunteer since 2014, including the Save Soil campaign. A mother of a toddler — she knows the doing-everything life firsthand.</p>
+        </div>
+      </div>
+      <div class="teacher reveal d1">
+        <div class="t-img ph-slot"><span class="ph-cap">Portrait</span></div>
+        <div class="t-body">
+          <h3>Manasa Ganga</h3>
+          <div class="role">Classical Arts Curator</div>
+          <p>Sadhguru Gurukulam alumna with fifteen years in Hindustani music, and a classical Hatha Yoga teacher. A life spent rooted in spirituality and the yogic sciences.</p>
+        </div>
+      </div>
+      <div class="teacher reveal d2">
+        <div class="t-img ph-slot"><span class="ph-cap">Portrait</span></div>
+        <div class="t-body">
+          <h3>Adharsh Kiran</h3>
+          <div class="role">Kalari Master</div>
+          <p>Sadhguru Gurukulam alumnus, KPCGM-certified Kalari master and national medalist with seventeen years of practice. Also a Hatha Yoga teacher.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INVESTMENT ================= -->
+<section class="invest" id="included">
+  <div class="wrap">
+    <div class="eyebrow reveal">The investment</div>
+    <h2 class="display reveal">An invitation to <em>fifteen women</em></h2>
+
+    <div class="invite-card reveal d1">
+      <div class="ic-body">
+        <div class="small-caps">All inclusive · Three days · Two nights</div>
+        <div class="price"><span class="rupee">₹</span>50,000</div>
+        <div class="per">per person · cohort of fifteen</div>
+        <ul class="inc-list">
+          <li><span class="tick">◆</span>Full residential stay at Tavaro Resorts — your own private, air-conditioned room</li>
+          <li><span class="tick">◆</span>Every meal — fresh, vegetarian, composed to support the practices</li>
+          <li><span class="tick">◆</span>The complete program — Yoga, Kalaripayattu, chanting, classical arts</li>
+          <li><span class="tick">◆</span>Forty days of post-program engagement after you return home</li>
+          <li><span class="tick">◆</span>A take-home wellness hamper</li>
+        </ul>
+        <p class="forty">And it does not end when you leave —<br>forty days of guided engagement follow you home.</p>
+      </div>
+      <a class="bar-cta" href="#book">Begin Your Enquiry</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS (cream) ================= -->
+<section class="stories on-cream slant-b" id="stories">
+  <div class="wrap">
+    <div class="eyebrow reveal">Stories of transformation</div>
+    <h2 class="display reveal">What the retreat <em>changed</em> for them</h2>
+
+    <div class="quote-grid">
+      <div class="quote-card reveal">
+        <span class="mark">“</span>
+        <blockquote>The retreat was a truly transformative experience. It gave me the space to disconnect, reflect, and reconnect with what really matters. The setting, the people, and the guidance all came together perfectly — I left feeling refreshed and inspired.</blockquote>
+        <cite>Archana Bysani<span>Homemaker</span></cite>
+      </div>
+      <div class="quote-card reveal d1">
+        <span class="mark">“</span>
+        <blockquote>The way they made us connected with nature was fulfilling and content. It is a great getaway from everyday routine and rejuvenate oneself.</blockquote>
+        <cite>T. Deepthi Rao<span>Teacher</span></cite>
+      </div>
+    </div>
+    <p class="stories-note reveal d2">Every cohort is small enough that we know each woman's story — ask us about them on your enquiry call.</p>
+  </div>
+</section>
+
+<!-- ================= VENUE ================= -->
+<section class="venue" id="venue">
+  <div class="wrap">
+    <div class="eyebrow reveal">The setting</div>
+    <h2 class="display reveal">Tavaro Resorts, <em>Kokapet</em></h2>
+
+    <div class="venue-text reveal">
+      <p>Minutes from Hyderabad, and a world away from it. Lawns for morning practice under open sky, quiet air-conditioned rooms, and the kind of stillness the city never offers — close enough to reach easily, far enough to truly switch off.</p>
+      <div class="venue-times">
+        <div><span>Check-in</span>4 Sept · 2:00 PM</div>
+        <div><span>Check-out</span>6 Sept · 2:30 PM</div>
+      </div>
+    </div>
+
+    <!-- IMAGE SLOT: venue gallery — 4–6 landscape photos, 16:10, ≥1200px wide each.
+         Replace each .g-item's ph-slot contents with
+         <img src="..." srcset="... 800w, ... 1200w" sizes="(max-width:640px) 86vw, 640px" loading="lazy" alt="...">
+         Warm evening-light walkthrough shots work well. -->
+    <div class="gallery reveal d1">
+      <div class="gallery-track" id="galleryTrack" tabindex="0" aria-label="Venue photographs">
+        <div class="g-item ph-slot"><span class="ph-cap">The resort</span></div>
+        <div class="g-item ph-slot"><span class="ph-cap">The lawns</span></div>
+        <div class="g-item ph-slot"><span class="ph-cap">The rooms</span></div>
+        <div class="g-item ph-slot"><span class="ph-cap">Evening light</span></div>
+        <div class="g-item ph-slot"><span class="ph-cap">The dining</span></div>
+      </div>
+      <div class="gallery-progress" aria-hidden="true"><i id="galleryBar"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ (cream) ================= -->
+<section class="faq on-cream slant-b" id="faq">
+  <div class="wrap">
+    <div class="eyebrow reveal">Questions</div>
+    <h2 class="display reveal">Asked, <em>answered</em></h2>
+
+    <div class="faq-list reveal d1">
+      <details class="acc"><summary>Who is this retreat for? <span class="chev">＋</span></summary><div class="acc-body"><div class="acc-inner"><div class="ans">Women, 18 and above, who feel stretched thin by the pace of their lives — professionals, homemakers, teachers, anyone. No prior experience with yoga, Kalari, or music is needed.</div></div></div></details>
+      <details class="acc"><summary>I've never done yoga or Kalari. Can I still join? <span class="chev">＋</span></summary><div class="acc-body"><div class="acc-inner"><div class="ans">Yes. Every session is taught from the basics and adapted to the group. Kalari sessions are introductory and safe for beginners.</div></div></div></details>
+      <details class="acc"><summary>How fit do I need to be? <span class="chev">＋</span></summary><div class="acc-body"><div class="acc-inner"><div class="ans">If you can manage a brisk walk and sit on the floor, you're fine. If you have a medical condition, injury, or are pregnant, tell us during your enquiry call so we can advise.</div></div></div></details>
+      <details class="acc"><summary>What is the food like? <span class="chev">＋</span></summary><div class="acc-body"><div class="acc-inner"><div class="ans">Vegetarian, fresh, and light — designed to support the practices. Think khichdi, seasonal fruit, sprouts, millet dishes, soups. Tell us about allergies during your enquiry call.</div></div></div></details>
+      <details class="acc"><summary>What are the rooms like? <span class="chev">＋</span></summary><div class="acc-body"><div class="acc-inner"><div class="ans">Every participant has her own private, air-conditioned room with hot water at Tavaro Resorts, Kokapet. No sharing.</div></div></div></details>
+      <details class="acc"><summary>What should I bring? <span class="chev">＋</span></summary><div class="acc-body"><div class="acc-inner"><div class="ans">Comfortable clothing you can move in, walking shoes, a water bottle, personal medication, and one traditional outfit for the Day 3 Devi session. Yoga mats are provided.</div></div></div></details>
+      <details class="acc"><summary>What happens after the three days? <span class="chev">＋</span></summary><div class="acc-body"><div class="acc-inner"><div class="ans">The retreat includes a 40-day post-program engagement — structured follow-through so the practices settle into your daily life rather than fading by the following week.</div></div></div></details>
+      <details class="acc"><summary>How do I join? <span class="chev">＋</span></summary><div class="acc-body"><div class="acc-inner"><div class="ans">Fill in the enquiry form. We'll call you within 24 hours, answer your questions, and share a private payment link. Places are confirmed on payment, in order of payment received. The cohort is capped at 15.</div></div></div></details>
+      <details class="acc"><summary>Can I get a refund if I can't make it? <span class="chev">＋</span></summary><div class="acc-body"><div class="acc-inner"><div class="ans">Full refund minus a 5% processing fee up to 14 days before; 50% up to 7 days before; no refund within 7 days, though you may transfer your place to another woman or to a future cohort. The full policy is in the footer below.</div></div></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENQUIRY ================= -->
+<section class="booking" id="book">
+  <div class="wrap">
+    <div class="eyebrow reveal">Begin your enquiry</div>
+    <h2 class="display reveal">Fifteen seats. <em>One September.</em></h2>
+    <p class="lead reveal d1">No payment is taken on this page. Send an enquiry, and we will call you within 24 hours.</p>
+
+    <div class="book-grid">
+      <div class="book-side reveal">
+        <h3>How it works</h3>
+        <ol class="steps">
+          <li><div class="st-title">Enquire</div><p>Send the form. It takes a minute, and commits you to nothing.</p></li>
+          <li><div class="st-title">Speak with us</div><p>We call you within 24 hours — to answer your questions, and to make sure the retreat is right for you.</p></li>
+          <li><div class="st-title">Confirm</div><p>We share a private payment link. Your place is confirmed on payment, in order of payment received.</p></li>
+        </ol>
+        <p class="aside-contact">Prefer to talk first? Write to us directly on <a href="#" id="waDirect">WhatsApp</a>.</p>
+      </div>
+
+      <form id="enquiryForm" class="reveal d1">
+        <div class="form-head">
+          <div class="fh-caps">Enquiry</div>
+          <h3>Request your place</h3>
+        </div>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="f-phone">Phone · WhatsApp</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="f-city">City</label><input id="f-city" name="city" required></div>
+        <div class="field"><label for="f-occupation">Occupation</label><input id="f-occupation" name="occupation" required></div>
+        <div class="field"><label for="f-draw">What draws you to this retreat? <span class="opt">(optional)</span></label><textarea id="f-draw" name="draw"></textarea></div>
+        <p class="form-note">Submitting opens WhatsApp with your details pre-filled — simply press send.<br>We will call you within 24 hours.</p>
+        <button type="submit" class="btn btn-gold submit-btn"><span>Begin Your Enquiry</span><span class="arr">→</span></button>
+        <div class="confirm" id="confirmMsg">Thank you — your enquiry is on its way. We will call you within 24 hours.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <h4>Ree — From Doing to Being</h4>
+      <p>A residential retreat for women, rooted in Indian traditional sciences.<br>4–6 September 2026 · Tavaro Resorts, Kokapet, Hyderabad</p>
+      <!-- Contact links are wired from the CONFIG block at the bottom of this file. -->
+      <p style="margin-top:16px">Contact · <a href="#" id="waFoot">WhatsApp</a> &nbsp;·&nbsp; <a href="mailto:sriusha.hathayoga@gmail.com" id="mailFoot">Email</a></p>
+    </div>
+    <div>
+      <div class="caps-sm">Good to know</div>
+      <p>A women-only residential program. Vegetarian; alcohol and smoking are not permitted on the program. Please disclose medical conditions, injuries, or pregnancy during your enquiry call.</p>
+    </div>
+  </div>
+
+  <div class="legal">
+    <details>
+      <summary>Terms &amp; cancellation policy <span class="chev">＋</span></summary>
+      <div class="ans">
+        <p><strong>Booking &amp; payment.</strong> A seat is confirmed only on receipt of full payment (₹50,000). Enquiry alone does not hold a seat. Payment implies acceptance of these terms.</p>
+        <p style="margin-top:10px"><strong>Cancellation by participant.</strong></p>
+        <ul>
+          <li>14+ days before start (on or before 21 Aug): full refund minus 5% processing fee</li>
+          <li>7–13 days before start (22–28 Aug): 50% refund</li>
+          <li>Less than 7 days (29 Aug onward): no refund; seat transferable to another eligible participant or to the next cohort, one time, at no charge</li>
+        </ul>
+        <p><strong>Cancellation by organizers.</strong> If the retreat is cancelled or rescheduled by us for any reason, participants receive a full refund or may carry the amount to the next cohort. Our liability is limited to the amount paid.</p>
+        <p style="margin-top:10px"><strong>Health disclosure.</strong> Participants must disclose relevant medical conditions, injuries, and pregnancy before booking. Activities involve physical movement; participants take part at their own responsibility and should follow instructor guidance.</p>
+        <p style="margin-top:10px"><strong>Conduct &amp; environment.</strong> This is a women-only residential program. Alcohol, smoking, and non-vegetarian food are not permitted on the program. Participants are expected to attend sessions and respect the group's quiet hours.</p>
+        <p style="margin-top:10px"><strong>Photography.</strong> Group photos and session photography may be used for future program communication. Anyone who prefers not to appear can inform us at check-in.</p>
+      </div>
+    </details>
+    <p class="copyright">© 2026 Ree · All rights reserved</p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIG — edit these values; nothing else needs to change
+   ============================================================ */
+const CONFIG = {
+  whatsappNumber: "916300697485",                  // country code, no + or spaces
+  contactEmail: "sriusha.hathayoga@gmail.com",
+  brochureUrl: ""                                  // paste brochure PDF link when ready
+};
+
+/* ---- brochure ---- */
+document.getElementById("brochureBtn").addEventListener("click", function(e){
+  if (CONFIG.brochureUrl) { this.href = CONFIG.brochureUrl; }
+  else { e.preventDefault(); alert("The brochure is on its way — send an enquiry and we'll share it with you."); }
+});
+
+/* ---- contact links ---- */
+const waBase = CONFIG.whatsappNumber ? "https://wa.me/" + CONFIG.whatsappNumber : "";
+const waAsk = waBase ? waBase + "?text=" + encodeURIComponent("Hi! I have a question about the Ree retreat (4–6 Sept).") : "";
+[["waDirect", waAsk], ["waFoot", waAsk]].forEach(([id, href]) => {
+  const el = document.getElementById(id);
+  if (href) { el.href = href; el.target = "_blank"; el.rel = "noopener"; }
+  else if (CONFIG.contactEmail) { el.href = "mailto:" + CONFIG.contactEmail; el.textContent = "email"; }
+  else { el.removeAttribute("href"); el.style.borderBottom = "none"; el.textContent = "WhatsApp (coming shortly)"; }
+});
+const mailFoot = document.getElementById("mailFoot");
+if (CONFIG.contactEmail) { mailFoot.href = "mailto:" + CONFIG.contactEmail; }
+else { mailFoot.removeAttribute("href"); mailFoot.style.borderBottom = "none"; }
+
+/* ---- header on scroll ---- */
+const hdr = document.getElementById("siteHeader");
+addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 40), {passive:true});
+
+/* ---- reveal on scroll ---- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); } });
+}, {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+/* ---- animated accordions (day cards + FAQ) ----
+   With JS on, every <details.acc> is kept [open] so the browser never hides
+   content; expansion is animated via grid-template-rows on .acc-body.
+   With JS off, they behave as native <details>. */
+document.querySelectorAll("details.acc").forEach(d => {
+  if (d.hasAttribute("open")) d.classList.add("expanded");
+  d.setAttribute("open", "");
+  const isDay = d.classList.contains("day-card");
+  d.querySelector("summary").addEventListener("click", e => {
+    e.preventDefault();
+    const wasOpen = d.classList.contains("expanded");
+    if (isDay) {
+      document.querySelectorAll("details.day-card.expanded").forEach(o => o.classList.remove("expanded"));
+    }
+    d.classList.toggle("expanded", !wasOpen);
+  });
+});
+
+/* ---- venue gallery progress line ---- */
+const track = document.getElementById("galleryTrack"), bar = document.getElementById("galleryBar");
+if (track && bar) {
+  const setBar = () => {
+    const max = track.scrollWidth - track.clientWidth;
+    const start = track.clientWidth / track.scrollWidth;
+    const p = max > 0 ? track.scrollLeft / max : 1;
+    bar.style.transform = "scaleX(" + (start + (1 - start) * p) + ")";
+  };
+  track.addEventListener("scroll", setBar, {passive:true});
+  addEventListener("resize", setBar, {passive:true});
+  setBar();
+}
+
+/* ---- enquiry form → WhatsApp ---- */
+document.getElementById("enquiryForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const f = new FormData(this);
+  const msg =
+    "New Ree retreat enquiry\n" +
+    "Name: " + f.get("name") + "\n" +
+    "Phone: " + f.get("phone") + "\n" +
+    "Email: " + f.get("email") + "\n" +
+    "City: " + f.get("city") + "\n" +
+    "Occupation: " + f.get("occupation") +
+    (f.get("draw") ? "\nWhat draws me: " + f.get("draw") : "");
+  if (waBase) {
+    window.open(waBase + "?text=" + encodeURIComponent(msg), "_blank");
+    document.getElementById("confirmMsg").style.display = "block";
+  } else if (CONFIG.contactEmail) {
+    location.href = "mailto:" + CONFIG.contactEmail + "?subject=" + encodeURIComponent("Ree retreat enquiry") + "&body=" + encodeURIComponent(msg);
+    document.getElementById("confirmMsg").style.display = "block";
+  } else {
+    alert("Our enquiry line is being connected — please check back shortly.");
+  }
+});
+</script>
+</body>
+</html>
